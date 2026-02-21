@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Configure plant parameters for waste heat recovery simulation — inlet/outlet temperatures, flow rate, fuel type, and cost analysis.">
+    <title>Simulation | ThermaVision WHR Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Hero Background Slider (Stateless) -->
+    <div class="hero-slider">
+        <div class="slide active"
+            style="background-image: linear-gradient(rgba(6, 9, 15, 0.8), rgba(6, 9, 15, 0.8)), url('https://images.unsplash.com/photo-1510214690324-4f51e4ec70bb?q=80&w=2070&auto=format&fit=crop');">
+        </div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <div class="nav-brand-icon"><i data-lucide="flame"></i></div>
+            <span>ThermaVision</span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="simulation.html" class="active">Simulation</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+        <div class="nav-status">
+            <div class="nav-status-dot"></div>
+            <span>SugarNxt Node Online</span>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+            <i data-lucide="menu"></i>
+        </div>
+    </nav>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Running thermodynamic analysis...</div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content sim-page">
+        <div class="sim-container">
+
+            <div class="sim-header">
+                <h1><i data-lucide="calculator"
+                        style="vertical-align: middle; margin-right: 10px; color: var(--accent-cyan);"></i> Simulation
+                    <span class="gradient-text">Engine</span>
+                </h1>
+                <p>Enter your plant parameters to begin waste heat recovery analysis</p>
+            </div>
+
+            <div class="form-card">
+                <form id="simulation-form" novalidate>
+                    <div class="form-grid">
+
+                        <!-- Flue Gas Inlet Temperature -->
+                        <div class="form-group">
+                            <label class="form-label" for="flue_temp_in">
+                                <i data-lucide="thermometer" style="width:16px;"></i> Inlet Temperature <span
+                                    class="unit">(°C)</span>
+                                <span class="tooltip-trigger">?
+                                    <span class="tooltip-text">
+                                        Flue gas temperature at the boiler exit, before heat recovery.
+                                        Typical range: 150–450°C.
+                                        <span class="formula">Q = ṁ × Cₚ × (T_in − T_out)</span>
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-input" id="flue_temp_in" placeholder="e.g. 250" min="50"
+                                max="800" step="1" required>
+                            <div class="validation-msg" id="err-flue_temp_in"></div>
+                        </div>
+
+                        <!-- Flue Gas Outlet Temperature -->
+                        <div class="form-group">
+                            <label class="form-label" for="flue_temp_out">
+                                <i data-lucide="thermometer-snowflake" style="width:16px;"></i> Outlet Temperature <span
+                                    class="unit">(°C)</span>
+                                <span class="tooltip-trigger">?
+                                    <span class="tooltip-text">
+                                        Target flue gas temperature after heat recovery.
+                                        Must be lower than inlet temperature.
+                                        <span class="formula">⚠ If &lt; 120°C → acid dew point corrosion risk</span>
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-input" id="flue_temp_out" placeholder="e.g. 140" min="30"
+                                max="600" step="1" required>
+                            <div class="validation-msg" id="err-flue_temp_out"></div>
+                        </div>
+
+                        <!-- Flow Rate -->
+                        <div class="form-group">
+                            <label class="form-label" for="flow_rate">
+                                <i data-lucide="wind" style="width:16px;"></i> Flow Rate <span
+                                    class="unit">(kg/hr)</span>
+                                <span class="tooltip-trigger">?
+                                    <span class="tooltip-text">
+                                        Mass flow rate of flue gas through the stack.
+                                        Typical values: 5,000 – 100,000 kg/hr for industrial boilers.
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-input" id="flow_rate" placeholder="e.g. 10000" min="1"
+                                max="500000" step="100" required>
+                            <div class="validation-msg" id="err-flow_rate"></div>
+                        </div>
+
+                        <!-- Steam Demand -->
+                        <div class="form-group">
+                            <label class="form-label" for="steam_demand">
+                                <i data-lucide="droplets" style="width:16px;"></i> Steam Demand <span
+                                    class="unit">(kg/hr)</span>
+                                <span class="tooltip-trigger">?
+                                    <span class="tooltip-text">
+                                        Current steam consumption of the plant.
+                                        Used to calculate the percentage of steam
+                                        that can be offset by waste heat recovery.
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-input" id="steam_demand" placeholder="e.g. 5000" min="1"
+                                max="500000" step="100" value="5000">
+                            <div class="validation-msg" id="err-steam_demand"></div>
+                        </div>
+
+                        <!-- Fuel Type -->
+                        <div class="form-group">
+                            <label class="form-label" for="fuel_type">
+                                <i data-lucide="fuel" style="width:16px;"></i> Fuel Type
+                                <span class="tooltip-trigger">?
+                                    <span class="tooltip-text">
+                                        Primary fuel used in the boiler.
+                                        Emission factors (kg CO₂/kg fuel):<br>
+                                        Coal: 2.40 · Gas: 2.75 · Bagasse: 0
+                                    </span>
+                                </span>
+                            </label>
+                            <select class="form-select" id="fuel_type" required>
+                                <option value="Coal">Coal</option>
+                                <option value="Natural Gas">Natural Gas</option>
+                                <option value="Bagasse">Bagasse</option>
+                                <option value="Fuel Oil">Fuel Oil</option>
+                                <option value="Biomass">Biomass</option>
+                            </select>
+                            <div class="validation-msg" id="err-fuel_type"></div>
+                        </div>
+
+                        <!-- Fuel Cost -->
+                        <div class="form-group">
+                            <label class="form-label" for="fuel_cost">
+                                <i data-lucide="dollar-sign" style="width:16px;"></i> Fuel Cost <span
+                                    class="unit">($/kg)</span>
+                                <span class="tooltip-trigger">?
+                                    <span class="tooltip-text">
+                                        Unit cost of fuel delivered to site.
+                                        Used to compute annual monetary savings.
+                                        <span class="formula">Savings = Steam × Hrs × Cost</span>
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-input" id="fuel_cost" placeholder="e.g. 5" min="0.01"
+                                max="1000" step="0.01" required>
+                            <div class="validation-msg" id="err-fuel_cost"></div>
+                        </div>
+
+                        <!-- Operating Hours -->
+                        <div class="form-group">
+                            <label class="form-label" for="operating_hours">
+                                <i data-lucide="clock" style="width:16px;"></i> Operating Hours <span
+                                    class="unit">(hrs/yr)</span>
+                                <span class="tooltip-trigger">?
+                                    <span class="tooltip-text">
+                                        Annual hours the boiler runs under load.
+                                        Maximum: 8,760 hrs/yr (24×365).
+                                        Typical: 5,000 – 7,500 hrs/yr.
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-input" id="operating_hours" placeholder="e.g. 6000" min="1"
+                                max="8760" step="100" required>
+                            <div class="validation-msg" id="err-operating_hours"></div>
+                        </div>
+
+                        <!-- Installation Cost -->
+                        <div class="form-group">
+                            <label class="form-label" for="installation_cost">
+                                <i data-lucide="building-2" style="width:16px;"></i> Installation Cost <span
+                                    class="unit">($)</span>
+                                <span class="tooltip-trigger">?
+                                    <span class="tooltip-text">
+                                        Total CAPEX including equipment, civil works,
+                                        piping, and commissioning.
+                                        <span class="formula">Payback = CAPEX / Annual Savings</span>
+                                    </span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-input" id="installation_cost" placeholder="e.g. 500000"
+                                min="1" max="100000000" step="1000" required>
+                            <div class="validation-msg" id="err-installation_cost"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-lg" id="btn-analyze">
+                            <i data-lucide="play"></i> Run Analysis
+                        </button>
+                        <button type="reset" class="btn btn-secondary btn-lg" id="btn-reset">
+                            <i data-lucide="rotate-ccw"></i> Reset
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Engineering Guide -->
+            <div
+                style="margin-top: 3rem; text-align: center; opacity: 0.7; font-size: 0.85rem; font-family: var(--font-mono); color: var(--text-secondary);">
+                <p><i data-lucide="info" style="width:14px; vertical-align: middle; margin-right: 5px;"></i> Base
+                    Formula: Q (kW) = [ṁ (kg/hr) × 1.0 (Cp) × ΔT] / 3600</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 <strong>ThermaVision</strong> | Team: Babin, Debasmita, Joita, Manisha</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/simulation.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
