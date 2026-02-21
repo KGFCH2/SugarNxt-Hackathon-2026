@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ThermaVision — AI-powered industrial energy optimization for SugarNxt Hackathon. Waste heat recovery from flue gases for juice heating.">
+    <title>ThermaVision | Smart Flue Gas WHR Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Hero Background Slider -->
+    <div class="hero-slider">
+        <div class="slide active"
+            style="background-image: linear-gradient(rgba(6, 9, 15, 0.75), rgba(6, 9, 15, 0.75)), url('https://images.unsplash.com/photo-1510214690324-4f51e4ec70bb?q=80&w=2070&auto=format&fit=crop');">
+        </div>
+        <div class="slide"
+            style="background-image: linear-gradient(rgba(6, 9, 15, 0.75), rgba(6, 9, 15, 0.75)), url('https://images.unsplash.com/photo-1504384764586-bb4cdc17477b?q=80&w=2070&auto=format&fit=crop');">
+        </div>
+        <div class="slide"
+            style="background-image: linear-gradient(rgba(6, 9, 15, 0.75), rgba(6, 9, 15, 0.75)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop');">
+        </div>
+    </div>
+
+    <!-- Three.js Canvas Container -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <div class="nav-brand-icon"><i data-lucide="flame"></i></div>
+            <span>ThermaVision</span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="simulation.html">Simulation</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+        <div class="nav-status">
+            <div class="nav-status-dot"></div>
+            <span>SugarNxt Node Online</span>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+            <i data-lucide="menu"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i data-lucide="cpu" style="width:14px; height:14px;"></i> AI-Powered SugarNxt Hackathon Solution
+                </div>
+                <h1>
+                    <span class="gradient-text">Convert Flue Gas Waste</span><br>
+                    into Process Energy
+                </h1>
+                <p class="hero-subtitle">
+                    Seamless waste heat recovery for juice heating. Optimize thermal ROI,
+                    ensure operational resilience, and transform industrial waste into
+                    sustainable energy with engineering-grade precision.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="simulation.html" class="btn btn-primary btn-lg" id="cta-simulate">
+                        <i data-lucide="play"></i> Launch Simulation
+                    </a>
+                    <a href="#features" class="btn btn-secondary btn-lg">
+                        <i data-lucide="info"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Stats Strip -->
+        <section class="stats-strip" id="stats-strip">
+            <div class="stat-item">
+                <div class="stat-icon"><i data-lucide="activity"></i></div>
+                <div class="stat-number" data-target="15000" data-suffix="+">0</div>
+                <div class="stat-label">Simulations Run</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i data-lucide="zap"></i></div>
+                <div class="stat-number green" data-target="2400" data-suffix=" MW">0</div>
+                <div class="stat-label">Heat Recovered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i data-lucide="trending-up"></i></div>
+                <div class="stat-number orange" data-target="890" data-suffix="M $">0</div>
+                <div class="stat-label">Savings Identified</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i data-lucide="leaf"></i></div>
+                <div class="stat-number purple" data-target="340" data-suffix="K tons">0</div>
+                <div class="stat-label">CO₂ Prevented</div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section" id="features">
+            <div class="section-header">
+                <h2>Platform <span class="gradient-text">Capabilities</span></h2>
+                <p>Advanced integration strategies for diverting and utilizing flue gas heat safely.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-in">
+                    <div class="feature-icon"><i data-lucide="thermometer"></i></div>
+                    <h3>Thermodynamic Analysis</h3>
+                    <p>Physics-based calculations for juice heating, ensuring boiler draft and back-pressure balance are
+                        maintained.</p>
+                </div>
+                <div class="feature-card animate-in animate-delay-1">
+                    <div class="feature-icon"><i data-lucide="layout"></i></div>
+                    <h3>Infrastructure Design</h3>
+                    <p>Detailed breakdown of ducting, heat exchangers, and pumping systems required for efficient heat
+                        transfer.</p>
+                </div>
+                <div class="feature-card animate-in animate-delay-2">
+                    <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+                    <h3>Optimized Thermal ROI</h3>
+                    <p>Calculates reduction in steam consumption and bagasse fuel use to demonstrate clear installation
+                        cost offsets.</p>
+                </div>
+                <div class="feature-card animate-in animate-delay-3">
+                    <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>Operational Resilience</h3>
+                    <p>Built-in protocols for flue gas condensation risks, corrosion prevention, and cleaning cycles.
+                    </p>
+                </div>
+                <div class="feature-card animate-in animate-delay-4">
+                    <div class="feature-icon"><i data-lucide="globe"></i></div>
+                    <h3>Climate Impact</h3>
+                    <p>5-year CO₂ avoidance forecasts translated into tangible environmental metrics for sustainability
+                        reporting.</p>
+                </div>
+                <div class="feature-card animate-in animate-delay-5">
+                    <div class="feature-icon"><i data-lucide="file-text"></i></div>
+                    <h3>Technical Roadmap</h3>
+                    <p>Auto-generated engineering reports ready for stakeholder review and implementation planning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works Section -->
+        <section class="section" id="how-it-works"
+            style="background: rgba(255,255,255,0.02); border-radius: var(--radius-xl); margin-bottom: 4rem;">
+            <div class="section-header">
+                <h2>The <span class="gradient-text">Energy Capture</span> Cycle</h2>
+                <p>A zero-touch integration that redirects wasted heat back into your mill's production line.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h4>Flue Gas Analysis</h4>
+                    <p>Sensors measure inlet/outlet flue gas temperature and mass flow rate from the boiler stack.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h4>WHRU Integration</h4>
+                    <p>High-efficiency Heat Recovery Units (HRU) divert the gas stream through specialized heat
+                        exchangers.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h4>Juice Pre-heating</h4>
+                    <p>Thermal energy is transferred to the raw or mixed juice stream, raising its temperature by 20°C -
+                        35°C.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h4>Steam Compression</h4>
+                    <p>Pre-heated juice reduces the load on primary juice heaters, saving tons of bagasse-fired steam
+                        daily.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering Edge Section -->
+        <section class="section" id="engineering-edge">
+            <div class="split-layout">
+                <div class="split-text">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Built for <span
+                            class="gradient-text">Industrial Scale</span></h2>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                        ThermaVision isn't just a calculator. It's a high-fidelity intelligence layer that understands
+                        the complex
+                        thermodynamic interactions in a sugar mill. Our engine accounts for the <strong>Specific Heat
+                            Capacity (Cp)</strong>
+                        of divergent gas types and the <strong>Acid Dew Point</strong> thresholds required to prevent
+                        equipment fouling.
+                    </p>
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;"><i
+                                data-lucide="check-circle" style="color:var(--accent-green); width:20px;"></i> Real-time
+                            Energy Balance Modeling</li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;"><i
+                                data-lucide="check-circle" style="color:var(--accent-green); width:20px;"></i> 100%
+                            Bagasse-Fuel Efficiency Logic</li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;"><i
+                                data-lucide="check-circle" style="color:var(--accent-green); width:20px;"></i> Automated
+                            Corrosion Risk Mitigation</li>
+                    </ul>
+                    <a href="simulation.html" class="btn btn-primary">Start Analysis <i
+                            data-lucide="arrow-right"></i></a>
+                </div>
+                <div class="split-image">
+                    <div class="glass-box">
+                        <div
+                            style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-mono);">
+                            // Core Thermodynamic Kernel</div>
+                        <pre style="margin: 0;"><code>
+Q = m * Cp * ΔT
+SteamSaved = Q / LatentHeat
+Efficiency = (Recovered / Input) * 100
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section" style="text-align: center; padding-bottom: 6rem;">
+            <h2 style="margin-bottom: 1rem;">Ready to <span class="gradient-text">Optimize Your Plant</span>?</h2>
+            <p
+                style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                Join the SugarNxt movement. Convert your flue gas waste into process energy today.
+            </p>
+            <a href="simulation.html" class="btn btn-success btn-lg">
+                <i data-lucide="rocket"></i> Launch Intelligence Engine
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 <strong>ThermaVision</strong> | Team: Babin, Debasmita, Joita, Manisha</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: var(--text-muted);">
+            SugarNxt Hackathon 2026 Entry
+        </p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
