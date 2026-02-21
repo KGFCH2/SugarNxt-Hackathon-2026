@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Smart Dashboard — View heat recovery metrics, scenario comparison, sensitivity analysis, ROI projections, and 5-year climate impact.">
+    <title>Dashboard | ThermaVision WHR Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Hero Background Slider (Stateless) -->
+    <div class="hero-slider">
+        <div class="slide active"
+            style="background-image: linear-gradient(rgba(6, 9, 15, 0.8), rgba(6, 9, 15, 0.8)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop');">
+        </div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <div class="nav-brand-icon"><i data-lucide="flame"></i></div>
+            <span>ThermaVision</span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="simulation.html">Simulation</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        </ul>
+        <div class="nav-status">
+            <div class="nav-status-dot"></div>
+            <span>SugarNxt Node Online</span>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+            <i data-lucide="menu"></i>
+        </div>
+    </nav>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Generating report...</div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content dash-page">
+        <div class="dash-container">
+
+            <!-- Header -->
+            <div class="dash-header">
+                <h1><i data-lucide="layout-dashboard"
+                        style="vertical-align: middle; margin-right: 10px; color: var(--accent-cyan);"></i> Analysis
+                    <span class="gradient-text">Dashboard</span>
+                </h1>
+                <div class="dash-actions">
+                    <a href="simulation.html" class="btn btn-secondary btn-sm"><i data-lucide="arrow-left"></i> New
+                        Simulation</a>
+                    <button class="btn btn-primary btn-sm" id="btn-download-pdf"><i data-lucide="file-down"></i>
+                        Download Report</button>
+                </div>
+            </div>
+
+            <!-- No Data State -->
+            <div id="no-data-state" style="text-align:center; padding: 6rem 2rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem; color: var(--text-muted);"><i
+                        data-lucide="bar-chart-3" style="width:80px; height:80px;"></i></div>
+                <h2 style="margin-bottom: 0.5rem;">No Analysis Data</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Run a simulation first to see your results
+                    here.</p>
+                <a href="simulation.html" class="btn btn-primary btn-lg"><i data-lucide="rocket"></i> Start
+                    Simulation</a>
+            </div>
+
+            <!-- Dashboard Content (hidden until data) -->
+            <div id="dashboard-content" style="display: none;">
+
+                <!-- AI Insight Banner -->
+                <div class="ai-insight-banner animate-in">
+                    <div class="ai-insight-label"><i data-lucide="brain-circuit" style="width:14px; height:14px;"></i>
+                        AI Engineering Insight</div>
+                    <p class="ai-insight-text" id="ai-summary-text"></p>
+                </div>
+
+                <!-- Dew Point Warning -->
+                <div class="warning-banner hidden" id="dew-point-warning">
+                    <div class="warning-banner-icon"><i data-lucide="alert-triangle"></i></div>
+                    <div class="warning-banner-text" id="warning-text"></div>
+                </div>
+
+                <!-- Metric Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card heat animate-in animate-delay-1">
+                        <div class="metric-icon"><i data-lucide="flame"></i></div>
+                        <div class="metric-value" id="metric-heat">—</div>
+                        <div class="metric-label">Heat Recovered (kW)</div>
+                    </div>
+                    <div class="metric-card steam animate-in animate-delay-2">
+                        <div class="metric-icon"><i data-lucide="waves"></i></div>
+                        <div class="metric-value" id="metric-steam">—</div>
+                        <div class="metric-label">Steam Saved (kg/hr)</div>
+                    </div>
+                    <div class="metric-card savings animate-in animate-delay-3">
+                        <div class="metric-icon"><i data-lucide="banknote"></i></div>
+                        <div class="metric-value" id="metric-savings">—</div>
+                        <div class="metric-label">Annual Savings</div>
+                    </div>
+                    <div class="metric-card payback animate-in animate-delay-4">
+                        <div class="metric-icon"><i data-lucide="trending-up"></i></div>
+                        <div class="metric-value" id="metric-payback">—</div>
+                        <div class="metric-label">Payback Period (yrs)</div>
+                    </div>
+                    <div class="metric-card co2 animate-in animate-delay-5">
+                        <div class="metric-icon"><i data-lucide="leaf"></i></div>
+                        <div class="metric-value" id="metric-co2">—</div>
+                        <div class="metric-label">CO₂ Reduction (t/yr)</div>
+                    </div>
+                    <div class="metric-card eff animate-in animate-delay-6">
+                        <div class="metric-icon"><i data-lucide="zap"></i></div>
+                        <div class="metric-value" id="metric-eff">—</div>
+                        <div class="metric-label">Efficiency Gain</div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3><i data-lucide="bar-chart-4" style="width:18px;"></i> Steam Comparison — Before vs After
+                        </h3>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chart-steam"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3><i data-lucide="pie-chart" style="width:18px;"></i> Energy Utilization Breakdown</h3>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chart-energy"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card" style="grid-column: 1 / -1;">
+                        <h3><i data-lucide="line-chart" style="width:18px;"></i> ROI Projection — 5-Year Outlook</h3>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chart-roi"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation -->
+                <div class="recommendation-card">
+                    <h3><i data-lucide="target" style="width:18px;"></i> Intelligent Recommendation</h3>
+                    <div class="rec-grid">
+                        <div class="rec-item">
+                            <div class="rec-item-label">Equipment Type</div>
+                            <div class="rec-item-value" id="rec-type">—</div>
+                        </div>
+                        <div class="rec-item">
+                            <div class="rec-item-label">Optimal Exit Temp</div>
+                            <div class="rec-item-value" id="rec-exit-temp">—</div>
+                        </div>
+                        <div class="rec-item">
+                            <div class="rec-item-label">Improvement Detail</div>
+                            <div class="rec-item-value" id="rec-improvement"
+                                style="font-size:0.85rem; color: var(--text-secondary);">—</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario Comparison -->
+                <div class="scenario-section">
+                    <h3><i data-lucide="layers" style="width:18px;"></i> Multi-Scenario Comparison</h3>
+                    <table class="scenario-table" id="scenario-table">
+                        <thead>
+                            <tr>
+                                <th>Scenario</th>
+                                <th>Heat (kW)</th>
+                                <th>Steam (kg/hr)</th>
+                                <th>Savings ($/yr)</th>
+                                <th>Payback (yrs)</th>
+                                <th>CO₂ (t/yr)</th>
+                                <th>Efficiency (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scenario-tbody"></tbody>
+                    </table>
+                </div>
+
+                <!-- Sensitivity Analysis -->
+                <div class="sensitivity-section">
+                    <h3><i data-lucide="sliders" style="width:18px;"></i> Sensitivity Analysis</h3>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-label">Fuel Cost Variation</span>
+                            <span class="slider-value" id="sens-fuel-value">$5.00/kg</span>
+                        </div>
+                        <input type="range" class="range-slider" id="sens-fuel" min="0.5" max="50" step="0.5" value="5">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-label">Operating Hours</span>
+                            <span class="slider-value" id="sens-hours-value">6,000 hrs</span>
+                        </div>
+                        <input type="range" class="range-slider" id="sens-hours" min="1000" max="8760" step="100"
+                            value="6000">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-label">Installation Cost</span>
+                            <span class="slider-value" id="sens-cost-value">$500,000</span>
+                        </div>
+                        <input type="range" class="range-slider" id="sens-cost" min="50000" max="5000000" step="10000"
+                            value="500000">
+                    </div>
+
+                    <div class="sensitivity-results">
+                        <div class="sens-result-item">
+                            <div class="sens-result-value" id="sens-savings">—</div>
+                            <div class="sens-result-label">Annual Savings</div>
+                        </div>
+                        <div class="sens-result-item">
+                            <div class="sens-result-value" id="sens-payback">—</div>
+                            <div class="sens-result-label">Payback Period</div>
+                        </div>
+                        <div class="sens-result-item">
+                            <div class="sens-result-value" id="sens-roi">—</div>
+                            <div class="sens-result-label">5-Year ROI</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5-Year Climate Impact -->
+                <div class="climate-section">
+                    <h3><i data-lucide="globe" style="width:18px;"></i> Projected 5-Year Climate Impact</h3>
+                    <div class="climate-grid">
+                        <div class="climate-item">
+                            <div class="climate-item-icon"><i data-lucide="factory"
+                                    style="width:40px; height:40px; color: var(--accent-green);"></i></div>
+                            <div class="climate-item-value" id="climate-co2">—</div>
+                            <div class="climate-item-label">Total CO₂ Avoided (tons)</div>
+                        </div>
+                        <div class="climate-item">
+                            <div class="climate-item-icon"><i data-lucide="trees"
+                                    style="width:40px; height:40px; color: var(--accent-green);"></i></div>
+                            <div class="climate-item-value" id="climate-trees">—</div>
+                            <div class="climate-item-label">Equivalent Trees Planted</div>
+                        </div>
+                        <div class="climate-item">
+                            <div class="climate-item-icon"><i data-lucide="car"
+                                    style="width:40px; height:40px; color: var(--accent-green);"></i></div>
+                            <div class="climate-item-value" id="climate-cars">—</div>
+                            <div class="climate-item-label">Equivalent Cars Removed</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Technical Context & Equipment Guide -->
+                <div class="section"
+                    style="margin-top: 4rem; background: rgba(255,255,255,0.01); padding: 3rem; border-radius: var(--radius-xl);">
+                    <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                        <h2 style="font-size: 1.5rem;">Technical <span class="gradient-text">Context</span> & Equipment
+                            Guide</h2>
+                        <p style="margin: 0; max-width: 100%;">Deep dive into the components and methodology of your
+                            waste heat recovery system.</p>
+                    </div>
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                        <div class="feature-card" style="padding: 1.5rem;">
+                            <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">Heat Exchanger (HE)</h4>
+                            <p style="font-size: 0.85rem;">For flue gas to juice recovery, we recommend
+                                <strong>Corrosion-Resistant Shell & Tube</strong> or specialized
+                                <strong>Plate Heat Exchangers</strong> with wide gaps for heavy particulate flue gas
+                                streams common in bagasse boilers.
+                            </p>
+                        </div>
+                        <div class="feature-card" style="padding: 1.5rem;">
+                            <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">Induced Draft (ID) Fan</h4>
+                            <p style="font-size: 0.85rem;">Installing a WHRU increases pressure drop (back-pressure). It
+                                is critical to resize your
+                                <strong>ID Fans</strong> to ensure optimal boiler draft is maintained for stable
+                                combustion.
+                            </p>
+                        </div>
+                        <div class="feature-card" style="padding: 1.5rem;">
+                            <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">Corrosion Prevention</h4>
+                            <p style="font-size: 0.85rem;">Our logic monitors the <strong>Acid Dew Point (ADP)</strong>.
+                                To prevent sulphuric acid fouling,
+                                the flue gas exit temperature must be controlled via automated bypass dampers when
+                                operating at low loads.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- /dashboard-content -->
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 <strong>ThermaVision</strong> | Team: Babin, Debasmita, Joita, Manisha</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
