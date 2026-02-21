@@ -3,4 +3,7 @@ ThermaVision/backend/venv/
 *.py[cod]
 *$py.class
 ThermaVision/backend/.env/
+ThermaVision/backend/.vscode/
+ThermaVision/SUBMISSION_DETAILS.md/
+
 
