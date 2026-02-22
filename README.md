@@ -8,21 +8,21 @@
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [✨ Overview](#overview)
 - [🏛️ About ISMA](#about-isma)
 - [🧩 Hackathon Problem Statements](#hackathon-problem-statements)
-- [🔥 ThermaVision — Our PS-5 Solution](#thermavision---our-ps-5-solution)
+- [🔥 Our PS-5 Solution](#our-ps-5-solution)
 - [🏗️ Technical Architecture](#technical-architecture)
-- [▶️ Quick Start — Run ThermaVision Locally](#quick-start---run-thermavision-locally)
+- [▶️ Quick Start](#quick-start)
 - [👥 Team Four-0-Four](#team-four-0-four)
 - [📂 Project Structure](#project-structure)
 - [🤝 Future Roadmap](#future-roadmap)
 
 ---
 
-## ✨ Overview
+## Overview
 
 The **ISMA SugarNXT Hackathon 2026** is an industry-driven initiative accelerating technology-led transformation across the Indian sugar ecosystem.
 
@@ -32,7 +32,7 @@ Our submission, **ThermaVision**, addresses **PS-5**: *Converting Flue Gas Waste
 
 ---
 
-## 🏛️ About ISMA
+## About ISMA
 
 The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarcane sector for over nine decades. ISMA works closely with policymakers, industry leaders, and farmers to modernize operations and drive sustainable growth.
 
@@ -40,7 +40,7 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 
 ---
 
-## 🧩 Hackathon Problem Statements
+## Hackathon Problem Statements
 
 - **PS-1** — Developing MOC for High-Impact Cane Preparation 🍃
 - **PS-2** — Micro-Filtration for High-Yield Juice Clarification 🧫
@@ -53,15 +53,15 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 
 ---
 
-## 🔥 ThermaVision — Our PS-5 Solution
+## Our PS-5 Solution
 
 ### Flue gas emissions from industrial boilers — a massive untapped energy source
 
-### 🎯 Objective
+### Objective
 
 Capture thermal energy potential from boiler flue gas and convert it into usable process energy (via pre-heating raw juice) while maximizing operational safety and sustainability.
 
-### ✨ Key Features
+### Key Features
 
 - **Thermodynamic Engine**: Precise energy-balance calculations using industrial-grade physics.
 - **AI Insight Generator**: Automatically creates boardroom-ready executive summaries.
@@ -70,7 +70,7 @@ Capture thermal energy potential from boiler flue gas and convert it into usable
 
 ---
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 We have built a robust **Decoupled Full-Stack** solution:
 
@@ -79,7 +79,7 @@ We have built a robust **Decoupled Full-Stack** solution:
 
 ---
 
-## ▶️ Quick Start — Run ThermaVision Locally
+## Quick Start
 
 ### Prerequisites
 
@@ -143,7 +143,7 @@ Go to [http://localhost:3000](http://localhost:3000) — The ThermaVision portal
 
 ---
 
-## 👥 Team Four-0-Four
+## Team Four-0-Four
 
 We are a dedicated group of engineers passionate about industrial sustainability.
 
@@ -156,7 +156,7 @@ We are a dedicated group of engineers passionate about industrial sustainability
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```bash
 ThermaVision/
@@ -176,7 +176,7 @@ ThermaVision/
 
 ---
 
-## 🤝 Future Roadmap
+## Future Roadmap
 
 - [ ] **Hardware Integration**: Real-time IoT sensor telemetry.
 - [ ] **Predictive Maintenance**: AI-driven fouling detection for heat exchangers.
@@ -185,7 +185,7 @@ ThermaVision/
 
 ---
 
-## 📝 License & Credits
+## License & Credits
 
 Developed for **ISMA SugarNXT Hackathon 2026** by **Team Four-0-Four**.
 All contributors retain ownership of their respective work.
