@@ -211,25 +211,31 @@ Industrial boilers in sugar mills emit high-temperature flue gases that escape t
 ## 🚀 How to Run the Project
 
 ### Prerequisites
+
 - Python 3.8+ installed
 - A Groq API key (optional — for AI insights)
 
 ### Step 1 — Start the Backend
+
 ```bash
 cd ThermaVision/backend
 pip install -r requirements.txt
 python run.py
 ```
+
 Backend starts at `http://localhost:8000`
 
 ### Step 2 — Start the Frontend
+
 ```bash
 cd ThermaVision/frontend
 python -m http.server 3000
 ```
+
 Frontend starts at `http://localhost:3000`
 
 ### Step 3 — Use the App
+
 1. Open `http://localhost:3000` in your browser
 2. Click "Launch Simulation" to go to the input form
 3. Fill in plant parameters and click "Run Analysis"
