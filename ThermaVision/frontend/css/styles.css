@@ -295,7 +295,47 @@ a:hover {
     will-change: opacity, transform;
 }
 
-.hero-slider .slide.active {
+.hero-slider .slide-1 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_1.jpg');
+}
+
+.slide-2 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_2.png');
+}
+
+.slide-3 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_3.png');
+}
+
+.slide-4 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_4.png');
+}
+
+.slide-5 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_5.png');
+}
+
+.slide-6 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_6.png');
+}
+
+.slide-7 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_7.png');
+}
+
+.slide-8 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_8.png');
+}
+
+.slide-9 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_9.png');
+}
+
+.slide-10 {
+    background-image: linear-gradient(rgba(6, 9, 15, 0.7), rgba(6, 9, 15, 0.7)), url('../public/image_10.jpeg');
+}
+
+.slide.active {
     opacity: 1;
     transform: scale(1);
     z-index: 2;
