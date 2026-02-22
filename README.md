@@ -139,7 +139,7 @@ pip install -r requirements.txt
 python run.py
 ```
 
-You should see: `INFO: Uvicorn running on http://0.0.0.0:8000`
+You should see: `INFO: Uvicorn running on http://127.0.0.1:8080`
 
 ### Step 4: Launch Frontend (New Terminal)
 
@@ -148,7 +148,7 @@ You should see: `INFO: Uvicorn running on http://0.0.0.0:8000`
 cd SugarNxt_Hackathon_2026/ThermaVision/frontend
 
 # Start a simple HTTP server
-python -m http.server 3000
+python -m http.server 3000 --bind 127.0.0.1
 ```
 
 You should see: `Serving HTTP on :: port 3000 ...`
@@ -157,7 +157,7 @@ You should see: `Serving HTTP on :: port 3000 ...`
 
 Go to **<http://localhost:3000>** — The ThermaVision portal is now live!
 
-> **Important:** Keep both terminals running. The frontend (port 3000) sends API requests to the backend (port 8000).
+> **Important:** Keep both terminals running. The frontend (port 3000) sends API requests to the backend (port 8080).
 
 ---
 
@@ -213,6 +213,8 @@ ThermaVision/
 
 Developed for **ISMA SugarNXT Hackathon 2026** by **Team Four-0-Four**.
 All contributors retain ownership of their respective work.
+
+This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
 
 ---
 <div align="center">
