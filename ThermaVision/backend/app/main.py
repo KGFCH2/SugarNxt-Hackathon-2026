@@ -6,9 +6,11 @@ FastAPI application entry point.
 - Serves on port 8000
 """
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from .api.routes import router
+from .models.schemas import ChatRequest, ChatResponse
+from groq import Groq
 from dotenv import load_dotenv
 import os
 
@@ -23,6 +25,30 @@ app = FastAPI(
     description="Decision-support platform for industrial waste heat recovery analysis",
     version="1.0.0",
 )
+
+@app.get("/")
+async def root():
+    return {"message": "ThermaVision API is running. Use /analyze or /chat endpoints."}
+
+@app.post("/chat", response_model=ChatResponse)
+async def chat(req: ChatRequest):
+    api_key = os.getenv("GROQ_API_KEY")
+    if not api_key or api_key == "your_groq_api_key_here":
+        return ChatResponse(response="I'm here to help, but I need a valid Groq API key in the .env file!")
+    try:
+        client = Groq(api_key=api_key)
+        completion = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": "You are 'ThermaBot', an expert in energy recovery."},
+                {"role": "user", "content": req.message}
+            ],
+            temperature=0.7,
+            max_tokens=500,
+        )
+        return ChatResponse(response=completion.choices[0].message.content)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Chatbot error: {str(e)}")
 
 @app.on_event("startup")
 async def startup_event():
