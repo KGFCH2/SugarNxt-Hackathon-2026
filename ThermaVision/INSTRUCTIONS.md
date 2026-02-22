@@ -19,7 +19,7 @@ Welcome to the internal documentation for **ThermaVision**. This guide explains 
 
 ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend and backend run as independent servers that communicate through HTTP API calls.
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────────┐
 │                        USER'S BROWSER                               │
 │                                                                     │
@@ -72,7 +72,7 @@ The frontend is a collection of static HTML, CSS, and JavaScript files served vi
 #### HTML Pages
 
 | File | Purpose |
-|---|---|
+| :--- | :--- |
 | `index.html` | Landing page with hero carousel, platform stats, feature cards, process flow, and CTA. This is the entry point for users |
 | `simulation.html` | Configuration form where users enter plant parameters. Validates inputs before sending to the backend API |
 | `dashboard.html` | Results page that displays all analysis data — metric cards, charts, AI insights, scenario comparison, sensitivity analysis, and climate impact projections |
@@ -80,14 +80,14 @@ The frontend is a collection of static HTML, CSS, and JavaScript files served vi
 #### CSS Styling (`/css`)
 
 | File | Purpose |
-|---|---|
+| :--- | :--- |
 | `styles.css` | The complete design system. Contains CSS variables, glassmorphism effects, responsive layouts, scroll animations, hero slider styles, card hover effects, and all component styling |
 | `chatbot.css` | Styles for the AI chatbot overlay component |
 
 #### JavaScript Logic (`/js`)
 
 | File | Purpose | Key Connection |
-|---|---|---|
+| :--- | :--- | :--- |
 | `app.js` | Handles the Three.js particle background, hero image slider (crossfade carousel), scroll-based animations, navbar scroll behavior, and stat counters | Runs on all pages — provides visual effects |
 | `simulation.js` | Manages form validation and the critical API call to the backend. On form submit, it sends a POST request to `/analyze`, receives the JSON response, stores it in `sessionStorage`, and redirects to the dashboard | **This is the bridge between frontend and backend** |
 | `dashboard.js` | Reads analysis results from `sessionStorage` and renders everything — Chart.js graphs, metric values, scenario table rows, sensitivity sliders, climate projections, and the PDF download trigger | Consumes the data that `simulation.js` stored |
@@ -102,7 +102,7 @@ The backend is a Python FastAPI application that serves as the computation engin
 #### Server Setup
 
 | File | Purpose |
-|---|---|
+| :--- | :--- |
 | `run.py` | Entry point — launches the Uvicorn ASGI server on port 8080 |
 | `app/main.py` | FastAPI app initialization. Configures **CORS middleware** (critical — this allows the frontend on `127.0.0.1:3000` to call the backend on `127.0.0.1:8080` without being blocked by the browser) and registers API routes |
 | `app/__init__.py` | Package initializer |
@@ -111,7 +111,7 @@ The backend is a Python FastAPI application that serves as the computation engin
 #### API Layer (`/app/api`)
 
 | File | Purpose |
-|---|---|
+| :--- | :--- |
 | `routes.py` | Defines the API endpoints. The `/analyze` endpoint receives plant parameters, calls the engine modules, and returns the full analysis JSON. The `/report` endpoint generates and streams a PDF file |
 | `schemas.py` (`/app/models`) | Pydantic models that define the exact shape of request and response data. This ensures type safety — if the frontend sends invalid data, FastAPI returns a clear error |
 
@@ -120,7 +120,7 @@ The backend is a Python FastAPI application that serves as the computation engin
 These are the core computation modules that run the industrial thermodynamic logic:
 
 | File | Purpose | Key Formula |
-|---|---|---|
+| :--- | :--- | :--- |
 | `calculator.py` | Applies the first law of thermodynamics to calculate heat recovery potential from flue gas | $Q = \dot{m} \times C_p \times \Delta T$ where Q is heat recovered (kW), ṁ is mass flow rate, Cp is specific heat capacity, and ΔT is temperature difference |
 | `optimizer.py` | Generates multiple recovery scenarios (Base, Improved, Optimized) with varying parameters. Calculates ROI, payback period, and annual savings for each | Runs iterative loops with varied exit temperatures and efficiency factors |
 | `insights.py` | Connects to the **Groq Llama-3 AI API** to generate an executive summary and equipment recommendations based on the calculated metrics | API key is stored server-side in `.env` — never exposed to the browser |
@@ -129,7 +129,7 @@ These are the core computation modules that run the industrial thermodynamic log
 #### Data & Integration (`/backend/app`)
 
 | File | Purpose |
-|---|---|
+| :--- | :--- |
 | `models/schemas.py` | Defines Pydantic data models for API requests and responses. Ensures strict data validation |
 | `api/routes.py` | Contains the actual logic for `/analyze`, `/report`, and chatbot interactions. Redirects traffic to engine modules |
 | `.env` | **Critical Security File**: Stores your secret `GROQ_API_KEY`. Must never be shared publicly |
@@ -139,7 +139,7 @@ These are the core computation modules that run the industrial thermodynamic log
 #### Frontend Assets (`/frontend/public`)
 
 | File | Purpose |
-|---|---|
+| :--- | :--- |
 | `image_1.jpg` to `image_10.jpeg` | High-quality industrial imagery for the landing page hero carousel |
 | `favicon.png` | The browser tab icon for the ThermaVision portal |
 
@@ -157,7 +157,7 @@ The frontend runs on `127.0.0.1:3000` (a simple Python HTTP server) and the back
 
 ### The Data Flow
 
-```
+```text
 simulation.html (form)
         │
         ▼
@@ -266,6 +266,6 @@ Frontend starts at `http://127.0.0.1:3000`
 
 This documentation and the ThermaVision software are provided under the [MIT License](../LICENSE).
 
-<div align="center">
-<i>Created by Team Four-0-Four for SugarNxt Hackathon 2026</i>
-</div>
+---
+
+_Created by Team Four-0-Four for SugarNxt Hackathon 2026. All rights reserved._
