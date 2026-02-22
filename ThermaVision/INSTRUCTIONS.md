@@ -236,7 +236,7 @@ Frontend starts at `http://localhost:3000`
 
 ### Step 3 — Use the App
 
-1. Open `http://localhost:3000` in your browser
+1. Open `http://127.0.0.1:3000` in your browser
 2. Click "Launch Simulation" to go to the input form
 3. Fill in plant parameters and click "Run Analysis"
 4. View your results on the Dashboard page
