@@ -2,12 +2,6 @@
 
 <div align="center">
 
-<img src="https://images.unsplash.com/photo-1601488375063-cbb5e251c63f?q=80&w=900&auto=format&fit=crop" alt="Industrial Power Plant — Flue Gas Waste Heat Recovery" width="800" style="border-radius:12px;">
-
-<br>
-<em>Converting Flue Gas Waste into Process Energy — Smart Heat Recovery for Sugar Mills</em>
-<br><br>
-
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Three.js](https://img.shields.io/badge/three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)
@@ -74,8 +68,7 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 ## 🔥 ThermaVision — Our PS-5 Solution
 
 <div align="center">
-<img src="https://images.unsplash.com/photo-1743190265512-65817e36eb49?q=80&w=800&auto=format&fit=crop" alt="Smokestack — Flue Gas Emissions from Industrial Boiler" width="700" style="border-radius:10px;">
-<br><em>Flue gas emissions from industrial boilers — a massive untapped energy source</em>
+**Flue gas emissions from industrial boilers — a massive untapped energy source**
 </div>
 
 ### 🎯 Objective
