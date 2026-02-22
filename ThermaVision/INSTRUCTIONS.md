@@ -1,11 +1,12 @@
-# 📖 ThermaVision Project Instructions & Architecture
+# 📖 ThermaVision — Project Instructions & Architecture
 
-Welcome to the internal documentation for **ThermaVision**. This guide explains how the frontend and backend are interconnected, the purpose of every file, and the core engineering principles behind the platform.
+Welcome to the internal documentation for **ThermaVision**. This guide explains how the frontend and backend are connected, the data flow between them, the purpose of every file, and the core engineering principles behind the platform.
 
 ---
 
 ## 👥 Meet the Team
-**ThermaVision** is the result of a collaborative spirit from the engineering team for the **SugarNxt Hackathon**:
+
+**ThermaVision** is a collaborative engineering solution built for the **SugarNxt Hackathon 2026**:
 
 - 🧑‍💻 **Babin Bid** — Team Lead & Architect
 - 👩‍💻 **Debasmita Bose** — Developer
@@ -14,85 +15,228 @@ Welcome to the internal documentation for **ThermaVision**. This guide explains 
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ System Architecture Overview
 
-ThermaVision follows a modern **Decoupled Full-Stack Architecture**:
+ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend and backend run as independent servers that communicate through HTTP API calls.
 
-1.  **Frontend (Client side)**: Built with Vanilla HTML5, CSS3 (Glassmorphism), and JavaScript. It uses **Three.js** for 3D visualizations and **Chart.js** for data rendering.
-2.  **Backend (Server side)**: A high-performance **FastAPI** (Python) server that handles complex thermodynamic calculations, AI-powered insight generation, and PDF report creation.
-3.  **API Communication**: The frontend sends plant parameters via `POST` requests to the backend. The backend returns a structured JSON object which the frontend stores in `sessionStorage` for persistence across pages (Simulation -> Dashboard).
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        USER'S BROWSER                               │
+│                                                                     │
+│  index.html ──────► simulation.html ──────► dashboard.html          │
+│  (Landing Page)     (Input Form)            (Results & Charts)      │
+│                          │                        ▲                  │
+│                          │ POST /analyze          │ sessionStorage   │
+│                          ▼                        │ (JSON data)      │
+│                    ┌──────────┐                   │                  │
+│                    │ fetch()  │───────────────────►│                  │
+│                    └──────────┘                                      │
+└────────────────────────┬────────────────────────────────────────────┘
+                         │ HTTP Request (JSON body)
+                         ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                     FASTAPI BACKEND (localhost:8000)                 │
+│                                                                     │
+│  routes.py ──► calculator.py ──► optimizer.py ──► insights.py       │
+│  (API endpoints)  (Thermodynamics)  (Scenarios)   (AI Summary)      │
+│                                                                     │
+│  Returns: JSON response with all calculated metrics                 │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### How They Connect — Step by Step
+
+1. **User opens `index.html`** in the browser (served on `localhost:3000`). This is the landing page with project overview and a call-to-action to start the simulation
+2. **User navigates to `simulation.html`** and fills the form with plant parameters (temperatures, flow rate, fuel type, costs)
+3. **Form submission triggers `simulation.js`** which validates all inputs and packages them into a JSON object
+4. **`simulation.js` sends a `POST` request** to `http://localhost:8000/analyze` using the browser `fetch()` API
+5. **The FastAPI backend receives the request** at the `/analyze` endpoint defined in `routes.py`
+6. **Backend processes the data** through three engine modules:
+   - `calculator.py` runs thermodynamic calculations (heat recovered, steam saved, efficiency)
+   - `optimizer.py` generates Base, Improved, and Optimized scenarios
+   - `insights.py` calls the Groq AI API to generate an executive summary
+7. **Backend returns a structured JSON response** containing all metrics, scenarios, recommendations, and the AI summary
+8. **`simulation.js` stores the entire JSON response** in the browser `sessionStorage` and redirects the user to `dashboard.html`
+9. **`dashboard.html` loads and `dashboard.js` reads the data** from `sessionStorage` to render charts (Chart.js), metrics, scenario tables, and the AI insight banner
+10. **User can download a PDF report** which triggers a request to the `/report` endpoint and the backend generates a timestamped PDF using FPDF2
 
 ---
 
 ## 📂 File-by-File Breakdown
 
-### 🌐 Frontend ( `/frontend` )
+### 🌐 Frontend (`/frontend`)
 
-#### 🦴 Layout & Structure
-*   **`index.html`**: The main landing page. Introduces the project, showcases high-level stats, and features a 3D particle background.
-*   **`simulation.html`**: The configuration interface. A validated form where users enter plant data.
-*   **`dashboard.html`**: The results center. Displays metrics, charts, AI recommendations, and environmental impact.
+The frontend is a collection of static HTML, CSS, and JavaScript files served via a simple HTTP server. There is no build step or bundler — everything runs directly in the browser.
 
-#### 🎨 Styling
-*   **`css/styles.css`**: The design system. Contains all CSS variables, glassmorphism logic, and responsive layouts.
+#### HTML Pages
 
-#### 🧠 Logic & Interactivity
-*   **`js/app.js`**: Global interactions. Handles Three.js background and hero slider.
-*   **`js/simulation.js`**: Form controller. Manages validation and calls the `/analyze` API.
-*   **`js/dashboard.js`**: Data visualizer. Renders Chart.js instances and handles PDF downloads.
+| File | Purpose |
+|---|---|
+| `index.html` | Landing page with hero carousel, platform stats, feature cards, process flow, and CTA. This is the entry point for users |
+| `simulation.html` | Configuration form where users enter plant parameters. Validates inputs before sending to the backend API |
+| `dashboard.html` | Results page that displays all analysis data — metric cards, charts, AI insights, scenario comparison, sensitivity analysis, and climate impact projections |
 
----
+#### CSS Styling (`/css`)
 
-### ⚙️ Backend ( `/backend` )
+| File | Purpose |
+|---|---|
+| `styles.css` | The complete design system. Contains CSS variables, glassmorphism effects, responsive layouts, scroll animations, hero slider styles, card hover effects, and all component styling |
+| `chatbot.css` | Styles for the AI chatbot overlay component |
 
-#### 🚀 Core Server
-*   **`run.py`**: The entry point. Launches the Uvicorn server.
-*   **`app/main.py`**: FastAPI initialization. Configures CORS and routes.
-*   **`requirements.txt`**: Dependency list (`fastapi`, `uvicorn`, `fpdf2`, `pydantic`).
+#### JavaScript Logic (`/js`)
 
-#### 🛣️ API Layer
-*   **`app/api/routes.py`**: The command center. Defines `/analyze` and `/report` endpoints.
-*   **`app/models/schemas.py`**: Data integrity. Pydantic models for request/response.
-
-#### 🧪 Engineering Engine ( `/app/engine` )
-*   **`calculator.py`**: Thermodynamic logic ($Q = \dot{m} \times C_p \times \Delta T$) for heat recovery.
-*   **`optimizer.py`**: Scenario engine. Generates comparisons and ROI.
-*   **`insights.py`**: AI Insight Generator. Creates summaries based on results.
+| File | Purpose | Key Connection |
+|---|---|---|
+| `app.js` | Handles the Three.js particle background, hero image slider (crossfade carousel), scroll-based animations, navbar scroll behavior, and stat counters | Runs on all pages — provides visual effects |
+| `simulation.js` | Manages form validation and the critical API call to the backend. On form submit, it sends a POST request to `/analyze`, receives the JSON response, stores it in `sessionStorage`, and redirects to the dashboard | **This is the bridge between frontend and backend** |
+| `dashboard.js` | Reads analysis results from `sessionStorage` and renders everything — Chart.js graphs, metric values, scenario table rows, sensitivity sliders, climate projections, and the PDF download trigger | Consumes the data that `simulation.js` stored |
+| `chatbot.js` | Handles the AI chatbot interaction overlay | Sends user messages to the backend chatbot endpoint |
 
 ---
 
-## 🔗 How it Works: The Full-Stack Significance
+### ⚙️ Backend (`/backend`)
 
-ThermaVision is not just a visual tool; it is a **Mission-Critical Industrial Engine**. Here is how the frontend and backend collaborate to deliver technical value:
+The backend is a Python FastAPI application that serves as the computation engine. It never serves HTML — it only accepts JSON requests and returns JSON responses.
 
-1.  **User Input (Frontend)**: The user enters specific mill parameters (e.g., Flue Gas Temp, Juice Flow Rate) in `simulation.html`.
-2.  **Frontend Request**: `simulation.js` packages this data into a JSON payload and sends it via an asynchronous `POST` request to the FastAPI backend.
-3.  **Thermodynamic Processing (Backend)**: 
-    - The backend engine (`calculator.py`) applies the first law of thermodynamics ($Q = \dot{m} \times C_p \times \Delta T$) to convert raw temperatures into thermal energy (kW).
-    - It then calculates equivalent steam savings, which directly translates to **Bagasse fuel reduction**.
-4.  **AI Technical Consulting (Backend + Groq)**:
-    - The server securely proxies data to the **Groq Llama-3 AI**.
-    - The AI analyzes the calculated metrics and provides a boardroom-ready executive summary, recommending specific equipment (e.g., Shell & Tube vs. Plate Heat Exchangers).
-5.  **Multi-Scenario Generation**: The backend runs optimization loops (`optimizer.py`) to generate "Base", "Improved", and "Optimized" versions of the recovery strategy.
-6.  **Secure Persistence**: By handling logic on the backend, we keep sensitive industrial math and **API Keys** secured away from the client-side browser.
-7.  **Data Visualization (Frontend)**: The frontend receives the calculated JSON, stores it in `sessionStorage`, and uses **Chart.js** and **Lucide** to turn raw numbers into actionable charts and metrics.
-8.  **Professional Reporting**: The backend generates a timestamped PDF technical report using the `FPDF2` library, which is streamed back to the user for implementation planning.
+#### Server Setup
+
+| File | Purpose |
+|---|---|
+| `run.py` | Entry point — launches the Uvicorn ASGI server on port 8000 |
+| `app/main.py` | FastAPI app initialization. Configures **CORS middleware** (critical — this allows the frontend on `localhost:3000` to call the backend on `localhost:8000` without being blocked by the browser) and registers API routes |
+| `app/__init__.py` | Package initializer |
+| `requirements.txt` | Python dependencies: `fastapi`, `uvicorn`, `fpdf2`, `pydantic`, `groq`, `python-dotenv` |
+
+#### API Layer (`/app/api`)
+
+| File | Purpose |
+|---|---|
+| `routes.py` | Defines the API endpoints. The `/analyze` endpoint receives plant parameters, calls the engine modules, and returns the full analysis JSON. The `/report` endpoint generates and streams a PDF file |
+| `schemas.py` (`/app/models`) | Pydantic models that define the exact shape of request and response data. This ensures type safety — if the frontend sends invalid data, FastAPI returns a clear error |
+
+#### Engineering Engine (`/app/engine`)
+
+These are the core computation modules that run the industrial thermodynamic logic:
+
+| File | Purpose | Key Formula |
+|---|---|---|
+| `calculator.py` | Applies the first law of thermodynamics to calculate heat recovery potential from flue gas | $Q = \dot{m} \times C_p \times \Delta T$ where Q is heat recovered (kW), ṁ is mass flow rate, Cp is specific heat capacity, and ΔT is temperature difference |
+| `optimizer.py` | Generates multiple recovery scenarios (Base, Improved, Optimized) with varying parameters. Calculates ROI, payback period, and annual savings for each | Runs iterative loops with varied exit temperatures and efficiency factors |
+| `insights.py` | Connects to the **Groq Llama-3 AI API** to generate an executive summary and equipment recommendations based on the calculated metrics | API key is stored server-side in `.env` — never exposed to the browser |
+
+---
+
+## 🔗 The Frontend-Backend Connection in Detail
+
+### Why Two Servers?
+
+The frontend runs on `localhost:3000` (a simple Python HTTP server) and the backend runs on `localhost:8000` (FastAPI/Uvicorn). They are separate because:
+
+- **Security**: The backend holds the Groq API key and sensitive calculation logic — these never reach the browser
+- **Separation of concerns**: The frontend handles presentation, the backend handles computation
+- **CORS**: The backend explicitly allows requests from the frontend origin via FastAPI CORS middleware in `main.py`
+
+### The Data Flow
+
+```
+simulation.html (form)
+        │
+        ▼
+simulation.js → fetch("http://localhost:8000/analyze", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        flue_temp_in: 250,
+                        flue_temp_out: 140,
+                        flow_rate: 10000,
+                        fuel_type: "Bagasse",
+                        fuel_cost: 5,
+                        operating_hours: 6000,
+                        installation_cost: 500000,
+                        steam_demand: 5000
+                    })
+                })
+        │
+        ▼
+Backend routes.py → calculator.py → optimizer.py → insights.py
+        │
+        ▼
+Returns JSON: {
+    heat_recovered_kw, steam_saved_kg_hr,
+    annual_savings, payback_years,
+    co2_reduction, efficiency_gain,
+    scenarios: [...], recommendation: {...},
+    ai_summary: "..."
+}
+        │
+        ▼
+simulation.js → sessionStorage.setItem("analysisResult", JSON.stringify(data))
+        │
+        ▼
+Redirect to dashboard.html
+        │
+        ▼
+dashboard.js → JSON.parse(sessionStorage.getItem("analysisResult"))
+        │
+        ▼
+Renders charts, metrics, tables, AI insights
+```
+
+### How `sessionStorage` Bridges the Pages
+
+Since `simulation.html` and `dashboard.html` are separate pages (full page navigation, not a SPA), the data from the API response needs to persist across the page transition. We use `sessionStorage` because:
+
+- It persists across page navigations within the same tab
+- It automatically clears when the tab is closed (no stale data)
+- It avoids passing large JSON payloads through URL parameters
 
 ---
 
 ## 🏆 SugarNxt Hackathon Context
 
-This project specifically targets **Sugar Industry Flue Gas Waste**. 
+This project specifically targets **Sugar Industry Flue Gas Waste**.
 
 ### 🔴 The Problem Statement
-Boilers emit high-temperature flue gases, wasting significant thermal energy. Capturing this is critical for efficiency.
+
+Industrial boilers in sugar mills emit high-temperature flue gases that escape through the stack, **wasting significant thermal energy**. This heat could be captured and reused instead of being lost to the atmosphere.
 
 ### 🟢 Our Solution
-- **Methodology**: Pre-heating "Raw Juice" using flue gas heat.
-- **Impact**: Reduces steam demand from the boiler.
-- **Sustainability**: Saves **Bagasse** fuel and lowers $CO_2$ emissions.
+
+- **Methodology**: Pre-heating raw juice using captured flue gas heat through waste heat recovery units (WHRU)
+- **Impact**: Reduces steam demand from the boiler, lowering fuel consumption
+- **Sustainability**: Saves bagasse fuel and reduces CO₂ emissions
+- **Decision Support**: Provides AI-powered engineering recommendations with ROI projections to help plant managers make informed decisions
 
 ---
+
+## 🚀 How to Run the Project
+
+### Prerequisites
+- Python 3.8+ installed
+- A Groq API key (optional — for AI insights)
+
+### Step 1 — Start the Backend
+```bash
+cd ThermaVision/backend
+pip install -r requirements.txt
+python run.py
+```
+Backend starts at `http://localhost:8000`
+
+### Step 2 — Start the Frontend
+```bash
+cd ThermaVision/frontend
+python -m http.server 3000
+```
+Frontend starts at `http://localhost:3000`
+
+### Step 3 — Use the App
+1. Open `http://localhost:3000` in your browser
+2. Click "Launch Simulation" to go to the input form
+3. Fill in plant parameters and click "Run Analysis"
+4. View your results on the Dashboard page
+
+---
+
 <div align="center">
-<i>Created by Team Four-0-Four for SugarNxt 2026.</i>
+<i>Created by Team Four-0-Four for SugarNxt 2026</i>
 </div>
