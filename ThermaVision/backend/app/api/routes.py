@@ -47,6 +47,7 @@ def _sanitize_pdf(text: str) -> str:
         "\u26a0\ufe0f": "[!]",
         "\u26a0": "[!]",
         "\u2757": "[!]",
+        "\u20b9": "Rs.",   # indian rupee
     }
     for k, v in replacements.items():
         text = text.replace(k, v)
@@ -158,9 +159,9 @@ async def generate_report(req: AnalysisRequest):
         f"Flue Gas Outlet Temperature: {req.flue_temp_out} C",
         f"Flow Rate: {req.flow_rate:,.0f} kg/hr",
         f"Fuel Type: {req.fuel_type.value}",
-        f"Fuel Cost: ${req.fuel_cost}/kg",
+        f"Fuel Cost: Rs. {req.fuel_cost}/kg",
         f"Operating Hours: {req.operating_hours:,.0f} hrs/yr",
-        f"Installation Cost: ${req.installation_cost:,.0f}",
+        f"Installation Cost: Rs. {req.installation_cost:,.0f}",
     ]
     for p in params:
         pdf.cell(0, 7, _sanitize_pdf(f"  - {p}"), ln=True)
@@ -173,7 +174,7 @@ async def generate_report(req: AnalysisRequest):
     results = [
         f"Heat Recovered: {heat_kw:,.2f} kW",
         f"Steam Saved: {steam:,.2f} kg/hr",
-        f"Annual Savings: ${savings:,.2f}",
+        f"Annual Savings: Rs. {savings:,.2f}",
         f"Payback Period: {payback:.2f} years",
         f"CO2 Reduction: {co2:,.2f} tons/year",
         f"Efficiency Gain: {eff:.2f}%",
