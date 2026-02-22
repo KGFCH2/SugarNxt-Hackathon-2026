@@ -1,5 +1,3 @@
-<div align="center">
-
 # 🚀 SugarNxt Hackathon 2026 — ThermaVision 🔥
 
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
@@ -8,8 +6,6 @@
 ![Chart.js](https://img.shields.io/badge/chart.js-F5788D?style=for-the-badge&logo=chart.js&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Hackathon_Ready-success?style=for-the-badge)
 
-</div>
-
 ---
 
 ## 📚 Table of Contents
@@ -17,16 +13,14 @@
 - [✨ Overview](#overview)
 - [🏛️ About ISMA](#about-isma)
 - [🧩 Hackathon Problem Statements](#hackathon-problem-statements)
-- [🔥 ThermaVision — Our PS-5 Solution](#thermavision-solution)
+- [🔥 ThermaVision — Our PS-5 Solution](#thermavision--our-ps-5-solution)
 - [🏗️ Technical Architecture](#technical-architecture)
-- [▶️ Quick Start — Run Locally](#quick-start)
-- [👥 Team Four-0-Four](#team)
+- [▶️ Quick Start — Run Locally](#quick-start--run-thermavision-locally)
+- [👥 Team Four-0-Four](#team-four-0-four)
 - [📂 Project Structure](#project-structure)
 - [🤝 Future Roadmap](#future-roadmap)
 
 ---
-
-<a id="overview"></a>
 
 ## ✨ Overview
 
@@ -38,8 +32,6 @@ Our submission, **ThermaVision**, addresses **PS-5**: *Converting Flue Gas Waste
 
 ---
 
-<a id="about-isma"></a>
-
 ## 🏛️ About ISMA
 
 The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarcane sector for over nine decades. ISMA works closely with policymakers, industry leaders, and farmers to modernize operations and drive sustainable growth.
@@ -47,8 +39,6 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 🌐 **Website:** [https://ismaindia.org](https://ismaindia.org)
 
 ---
-
-<a id="hackathon-problem-statements"></a>
 
 ## 🧩 Hackathon Problem Statements
 
@@ -63,13 +53,9 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 
 ---
 
-<a id="thermavision-solution"></a>
-
 ## 🔥 ThermaVision — Our PS-5 Solution
 
-<div align="center">
-**Flue gas emissions from industrial boilers — a massive untapped energy source**
-</div>
+### Flue gas emissions from industrial boilers — a massive untapped energy source
 
 ### 🎯 Objective
 
@@ -84,8 +70,6 @@ Capture thermal energy potential from boiler flue gas and convert it into usable
 
 ---
 
-<a id="technical-architecture"></a>
-
 ## 🏗️ Technical Architecture
 
 We have built a robust **Decoupled Full-Stack** solution:
@@ -95,13 +79,11 @@ We have built a robust **Decoupled Full-Stack** solution:
 
 ---
 
-<a id="quick-start"></a>
-
 ## ▶️ Quick Start — Run ThermaVision Locally
 
 ### Prerequisites
 
-- **Python 3.9+** — ([Download here](https://www.python.org/downloads/))
+- **Python 3.9+** — [Download here](https://www.python.org/downloads/)
 - **pip** — Comes bundled with Python
 - Modern Web Browser (Chrome / Edge / Firefox)
 
@@ -155,13 +137,11 @@ You should see: `Serving HTTP on :: port 3000 ...`
 
 ### Step 5: Open in Browser
 
-Go to **<http://localhost:3000>** — The ThermaVision portal is now live!
+Go to [http://localhost:3000](http://localhost:3000) — The ThermaVision portal is now live!
 
 > **Important:** Keep both terminals running. The frontend (port 3000) sends API requests to the backend (port 8080).
 
 ---
-
-<a id="team"></a>
 
 ## 👥 Team Four-0-Four
 
@@ -175,8 +155,6 @@ We are a dedicated group of engineers passionate about industrial sustainability
 | **Manisha Debnath** | Developer | [@mistu7debnath](https://github.com/mistu7debnath) |
 
 ---
-
-<a id="project-structure"></a>
 
 ## 📂 Project Structure
 
@@ -198,8 +176,6 @@ ThermaVision/
 
 ---
 
-<a id="future-roadmap"></a>
-
 ## 🤝 Future Roadmap
 
 - [ ] **Hardware Integration**: Real-time IoT sensor telemetry.
@@ -217,6 +193,5 @@ All contributors retain ownership of their respective work.
 This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
 
 ---
-<div align="center">
-Thank you for exploring <b>ThermaVision</b>.
-</div>
+
+Thank you for exploring **ThermaVision**.
