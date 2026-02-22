@@ -19,10 +19,23 @@
 
 <body>
 
-    <!-- Hero Background Slider (Stateless) -->
+    <!-- Hero Background Slider (Crossfade Carousel — flue gas & heat recovery imagery) -->
     <div class="hero-slider">
+        <!-- 1. Industrial Piping & Heat Exchanger System -->
         <div class="slide active"
-            style="background-image: linear-gradient(rgba(6, 9, 15, 0.8), rgba(6, 9, 15, 0.8)), url('https://images.unsplash.com/photo-1510214690324-4f51e4ec70bb?q=80&w=2070&auto=format&fit=crop');">
+            style="background-image: linear-gradient(rgba(6,9,15,0.8), rgba(6,9,15,0.8)), url('https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=2070&auto=format&fit=crop');">
+        </div>
+        <!-- 2. Industrial Smokestack Flue Gas Emissions -->
+        <div class="slide"
+            style="background-image: linear-gradient(rgba(6,9,15,0.8), rgba(6,9,15,0.8)), url('https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=2070&auto=format&fit=crop');">
+        </div>
+        <!-- 3. Sugar Mill Boiler with Steam & Flue Gas -->
+        <div class="slide"
+            style="background-image: linear-gradient(rgba(6,9,15,0.8), rgba(6,9,15,0.8)), url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=2070&auto=format&fit=crop');">
+        </div>
+        <!-- 4. Industrial Chimney Releasing Exhaust Gas -->
+        <div class="slide"
+            style="background-image: linear-gradient(rgba(6,9,15,0.8), rgba(6,9,15,0.8)), url('https://images.unsplash.com/photo-1543332164-6e82f355badc?q=80&w=2070&auto=format&fit=crop');">
         </div>
     </div>
 
@@ -31,10 +44,10 @@
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-brand">
+        <a href="index.html" class="nav-brand">
             <div class="nav-brand-icon"><i data-lucide="flame"></i></div>
             <span>ThermaVision</span>
-        </div>
+        </a>
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="simulation.html" class="active">Simulation</a></li>
@@ -59,7 +72,7 @@
     <main class="main-content sim-page">
         <div class="sim-container">
 
-            <div class="sim-header">
+            <div class="sim-header animate-in">
                 <h1><i data-lucide="calculator"
                         style="vertical-align: middle; margin-right: 10px; color: var(--accent-cyan);"></i> Simulation
                     <span class="gradient-text">Engine</span>
@@ -67,7 +80,7 @@
                 <p>Enter your plant parameters to begin waste heat recovery analysis</p>
             </div>
 
-            <div class="form-card">
+            <div class="form-card animate-in" style="transition-delay: 0.15s;">
                 <form id="simulation-form" novalidate>
                     <div class="form-grid">
 
