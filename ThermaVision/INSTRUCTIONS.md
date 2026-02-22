@@ -35,7 +35,7 @@ ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend 
                          │ HTTP Request (JSON body)
                          ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│                     FASTAPI BACKEND (localhost:8000)                 │
+│                     FASTAPI BACKEND (127.0.0.1:8080)                 │
 │                                                                     │
 │  routes.py ──► calculator.py ──► optimizer.py ──► insights.py       │
 │  (API endpoints)  (Thermodynamics)  (Scenarios)   (AI Summary)      │
@@ -49,7 +49,7 @@ ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend 
 1. **User opens `index.html`** in the browser (served on `localhost:3000`). This is the landing page with project overview and a call-to-action to start the simulation
 2. **User navigates to `simulation.html`** and fills the form with plant parameters (temperatures, flow rate, fuel type, costs)
 3. **Form submission triggers `simulation.js`** which validates all inputs and packages them into a JSON object
-4. **`simulation.js` sends a `POST` request** to `http://localhost:8000/analyze` using the browser `fetch()` API
+4. **`simulation.js` sends a `POST` request** to `http://127.0.0.1:8080/analyze` using the browser `fetch()` API
 5. **The FastAPI backend receives the request** at the `/analyze` endpoint defined in `routes.py`
 6. **Backend processes the data** through three engine modules:
    - `calculator.py` runs thermodynamic calculations (heat recovered, steam saved, efficiency)
@@ -59,6 +59,7 @@ ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend 
 8. **`simulation.js` stores the entire JSON response** in the browser `sessionStorage` and redirects the user to `dashboard.html`
 9. **`dashboard.html` loads and `dashboard.js` reads the data** from `sessionStorage` to render charts (Chart.js), metrics, scenario tables, and the AI insight banner
 10. **User can download a PDF report** which triggers a request to the `/report` endpoint and the backend generates a timestamped PDF using FPDF2
+11. **Chatbot Interactions** are handled by `chatbot.js`, which sends messages to the `/chat` endpoint for real-time AI technical support
 
 ---
 
@@ -102,8 +103,8 @@ The backend is a Python FastAPI application that serves as the computation engin
 
 | File | Purpose |
 |---|---|
-| `run.py` | Entry point — launches the Uvicorn ASGI server on port 8000 |
-| `app/main.py` | FastAPI app initialization. Configures **CORS middleware** (critical — this allows the frontend on `localhost:3000` to call the backend on `localhost:8000` without being blocked by the browser) and registers API routes |
+| `run.py` | Entry point — launches the Uvicorn ASGI server on port 8080 |
+| `app/main.py` | FastAPI app initialization. Configures **CORS middleware** (critical — this allows the frontend on `127.0.0.1:3000` to call the backend on `127.0.0.1:8080` without being blocked by the browser) and registers API routes |
 | `app/__init__.py` | Package initializer |
 | `requirements.txt` | Python dependencies: `fastapi`, `uvicorn`, `fpdf2`, `pydantic`, `groq`, `python-dotenv` |
 
@@ -114,7 +115,7 @@ The backend is a Python FastAPI application that serves as the computation engin
 | `routes.py` | Defines the API endpoints. The `/analyze` endpoint receives plant parameters, calls the engine modules, and returns the full analysis JSON. The `/report` endpoint generates and streams a PDF file |
 | `schemas.py` (`/app/models`) | Pydantic models that define the exact shape of request and response data. This ensures type safety — if the frontend sends invalid data, FastAPI returns a clear error |
 
-#### Engineering Engine (`/app/engine`)
+#### Engineering Engine (`/backend/app/engine`)
 
 These are the core computation modules that run the industrial thermodynamic logic:
 
@@ -123,6 +124,24 @@ These are the core computation modules that run the industrial thermodynamic log
 | `calculator.py` | Applies the first law of thermodynamics to calculate heat recovery potential from flue gas | $Q = \dot{m} \times C_p \times \Delta T$ where Q is heat recovered (kW), ṁ is mass flow rate, Cp is specific heat capacity, and ΔT is temperature difference |
 | `optimizer.py` | Generates multiple recovery scenarios (Base, Improved, Optimized) with varying parameters. Calculates ROI, payback period, and annual savings for each | Runs iterative loops with varied exit temperatures and efficiency factors |
 | `insights.py` | Connects to the **Groq Llama-3 AI API** to generate an executive summary and equipment recommendations based on the calculated metrics | API key is stored server-side in `.env` — never exposed to the browser |
+| `__init__.py` | Marks the engine directory as a Python package, allowing imports between modules | - |
+
+#### Data & Integration (`/backend/app`)
+
+| File | Purpose |
+|---|---|
+| `models/schemas.py` | Defines Pydantic data models for API requests and responses. Ensures strict data validation |
+| `api/routes.py` | Contains the actual logic for `/analyze`, `/report`, and chatbot interactions. Redirects traffic to engine modules |
+| `.env` | **Critical Security File**: Stores your secret `GROQ_API_KEY`. Must never be shared publicly |
+| `.env.example` | Template file showing which environment variables are needed for the project to work |
+| `__init__.py` | Top-level package initializer for the FastAPI application |
+
+#### Frontend Assets (`/frontend/public`)
+
+| File | Purpose |
+|---|---|
+| `image_1.jpg` to `image_10.jpeg` | High-quality industrial imagery for the landing page hero carousel |
+| `favicon.png` | The browser tab icon for the ThermaVision portal |
 
 ---
 
@@ -130,7 +149,7 @@ These are the core computation modules that run the industrial thermodynamic log
 
 ### Why Two Servers?
 
-The frontend runs on `localhost:3000` (a simple Python HTTP server) and the backend runs on `localhost:8000` (FastAPI/Uvicorn). They are separate because:
+The frontend runs on `127.0.0.1:3000` (a simple Python HTTP server) and the backend runs on `127.0.0.1:8080` (FastAPI/Uvicorn). They are separate because:
 
 - **Security**: The backend holds the Groq API key and sensitive calculation logic — these never reach the browser
 - **Separation of concerns**: The frontend handles presentation, the backend handles computation
@@ -142,7 +161,7 @@ The frontend runs on `localhost:3000` (a simple Python HTTP server) and the back
 simulation.html (form)
         │
         ▼
-simulation.js → fetch("http://localhost:8000/analyze", {
+simulation.js → fetch("http://127.0.0.1:8080/analyze", {
                     method: "POST",
                     body: JSON.stringify({
                         flue_temp_in: 250,
@@ -223,16 +242,16 @@ pip install -r requirements.txt
 python run.py
 ```
 
-Backend starts at `http://localhost:8000`
+Backend starts at `http://127.0.0.1:8080`
 
 ### Step 2 — Start the Frontend
 
 ```bash
 cd ThermaVision/frontend
-python -m http.server 3000
+python -m http.server 3000 --bind 127.0.0.1
 ```
 
-Frontend starts at `http://localhost:3000`
+Frontend starts at `http://127.0.0.1:3000`
 
 ### Step 3 — Use the App
 
@@ -243,6 +262,10 @@ Frontend starts at `http://localhost:3000`
 
 ---
 
+## ⚖️ License
+
+This documentation and the ThermaVision software are provided under the [MIT License](../LICENSE).
+
 <div align="center">
-<i>Created by Team Four-0-Four for SugarNxt 2026</i>
+<i>Created by Team Four-0-Four for SugarNxt Hackathon 2026</i>
 </div>
