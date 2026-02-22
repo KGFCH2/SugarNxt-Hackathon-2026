@@ -17,37 +17,37 @@
     --bg-overlay: rgba(6, 9, 15, 0.85);
 
     /* Accent palette */
-    --accent-cyan: #00d4ff;
-    --accent-blue: #3b82f6;
+    --accent-cyan: #fbbf24;
+    --accent-blue: #ff8c00;
     --accent-green: #00ff88;
     --accent-orange: #ff8c00;
     --accent-red: #ff4757;
-    --accent-purple: #a855f7;
+    --accent-purple: #ff4757;
     --accent-yellow: #fbbf24;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, #00d4ff 0%, #3b82f6 50%, #a855f7 100%);
-    --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #3b82f6 100%);
-    --gradient-card: linear-gradient(145deg, rgba(0, 212, 255, 0.06) 0%, rgba(59, 130, 246, 0.03) 100%);
-    --gradient-glow: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.15) 0%, transparent 60%);
+    --gradient-hero: linear-gradient(135deg, #fbbf24 0%, #ff8c00 50%, #ff4757 100%);
+    --accent-gradient: linear-gradient(135deg, #fbbf24 0%, #ff8c00 100%);
+    --gradient-card: linear-gradient(145deg, rgba(251, 191, 36, 0.06) 0%, rgba(255, 140, 0, 0.03) 100%);
+    --gradient-glow: radial-gradient(ellipse at 50% 0%, rgba(251, 191, 36, 0.15) 0%, transparent 60%);
     --gradient-dark: linear-gradient(180deg, #06090f 0%, #0c1117 100%);
 
     /* Text */
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
-    --text-accent: #00d4ff;
+    --text-accent: #fbbf24;
 
     /* Borders */
     --border-subtle: rgba(148, 163, 184, 0.08);
     --border-medium: rgba(148, 163, 184, 0.15);
-    --border-accent: rgba(0, 212, 255, 0.3);
+    --border-accent: rgba(251, 191, 36, 0.3);
 
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.2);
+    --shadow-glow: 0 0 30px rgba(251, 191, 36, 0.2);
     --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
     /* Spacing */
@@ -528,8 +528,8 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(0, 212, 255, 0.08);
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.2);
     color: var(--accent-cyan);
     padding: 0.4rem 1rem;
     border-radius: 100px;
@@ -601,7 +601,7 @@ a:hover {
 .btn-primary:hover {
     color: #fff !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
 }
 
 .btn-primary::before {
@@ -818,7 +818,7 @@ a:hover {
     justify-content: center;
     font-size: 1.5rem;
     margin-bottom: 1.25rem;
-    background: rgba(0, 212, 255, 0.1);
+    background: rgba(251, 191, 36, 0.1);
 }
 
 .feature-card h3 {
@@ -905,7 +905,7 @@ a:hover {
     justify-content: center;
     width: 18px;
     height: 18px;
-    background: rgba(0, 212, 255, 0.15);
+    background: rgba(251, 191, 36, 0.15);
     border-radius: 50%;
     font-size: 0.65rem;
     color: var(--accent-cyan);
@@ -941,7 +941,7 @@ a:hover {
     display: block;
     margin-top: 0.5rem;
     padding: 0.4rem 0.6rem;
-    background: rgba(0, 212, 255, 0.08);
+    background: rgba(251, 191, 36, 0.08);
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -970,7 +970,7 @@ a:hover {
 .form-input:focus,
 .form-select:focus {
     border-color: var(--accent-cyan);
-    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
 }
 
 .form-input::placeholder {
@@ -1215,7 +1215,7 @@ a:hover {
 .chart-card:hover {
     border-color: var(--border-accent);
     transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(251, 191, 36, 0.1);
 }
 
 .chart-card h3 {
@@ -1251,7 +1251,7 @@ a:hover {
 .recommendation-card:hover {
     border-color: var(--accent-cyan);
     transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(0, 212, 255, 0.12);
+    box-shadow: 0 6px 24px rgba(251, 191, 36, 0.12);
 }
 
 .recommendation-card h3 {
@@ -1270,7 +1270,7 @@ a:hover {
 }
 
 .rec-item {
-    background: rgba(0, 212, 255, 0.04);
+    background: rgba(251, 191, 36, 0.04);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 1rem 1.25rem;
@@ -1317,7 +1317,7 @@ a:hover {
 }
 
 .scenario-table thead th {
-    background: rgba(0, 212, 255, 0.06);
+    background: rgba(251, 191, 36, 0.06);
     padding: 0.75rem 1rem;
     text-align: left;
     font-weight: 700;
@@ -1337,7 +1337,7 @@ a:hover {
 }
 
 .scenario-table tbody tr:hover {
-    background: rgba(0, 212, 255, 0.03);
+    background: rgba(251, 191, 36, 0.03);
 }
 
 .scenario-table tbody tr:last-child td {
@@ -1414,7 +1414,7 @@ a:hover {
     border-radius: 50%;
     background: var(--accent-cyan);
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
     transition: transform var(--transition-fast);
 }
 
@@ -1429,7 +1429,7 @@ a:hover {
     background: var(--accent-cyan);
     cursor: pointer;
     border: none;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
 }
 
 .sensitivity-results {
@@ -1462,7 +1462,7 @@ a:hover {
 
 /* Climate Impact */
 .climate-section {
-    background: linear-gradient(135deg, rgba(0, 255, 136, 0.04), rgba(0, 212, 255, 0.04));
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.04), rgba(251, 191, 36, 0.04));
     border: 1px solid rgba(0, 255, 136, 0.15);
     border-radius: var(--radius-lg);
     padding: 2rem;
@@ -1915,7 +1915,7 @@ a:hover {
 .process-step:hover {
     transform: translateY(-5px);
     border-color: var(--accent-cyan);
-    box-shadow: 0 8px 28px rgba(0, 212, 255, 0.1);
+    box-shadow: 0 8px 28px rgba(251, 191, 36, 0.1);
     background: rgba(255, 255, 255, 0.06);
 }
 
@@ -1988,7 +1988,7 @@ a:hover {
 .glass-box:hover {
     border-color: var(--accent-cyan);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(251, 191, 36, 0.12);
 }
 
 .glass-box pre {
