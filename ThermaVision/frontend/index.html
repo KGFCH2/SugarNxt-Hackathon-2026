@@ -20,36 +20,16 @@
 
     <!-- Hero Background Slider (Crossfade Carousel — flue gas & heat recovery imagery) -->
     <div class="hero-slider">
-        <div class="slide active"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_1.jpg');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_2.png');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_3.png');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_4.png');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_5.png');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_6.png');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_7.png');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_8.png');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_9.png');">
-        </div>
-        <div class="slide"
-            style="background-image: linear-gradient(rgba(6,9,15,0.7), rgba(6,9,15,0.7)), url('public/image_10.jpeg');">
-        </div>
+        <div class="slide active slide-1"></div>
+        <div class="slide slide-2"></div>
+        <div class="slide slide-3"></div>
+        <div class="slide slide-4"></div>
+        <div class="slide slide-5"></div>
+        <div class="slide slide-6"></div>
+        <div class="slide slide-7"></div>
+        <div class="slide slide-8"></div>
+        <div class="slide slide-9"></div>
+        <div class="slide slide-10"></div>
     </div>
 
     <!-- Three.js Canvas Container -->
@@ -82,18 +62,18 @@
         <section class="hero" id="hero">
             <div class="hero-content">
                 <div class="hero-badge animate-in fade-only">
-                    <i data-lucide="cpu" style="width:14px; height:14px;"></i> AI-Powered SugarNxt Hackathon Solution
+                    <i data-lucide="cpu" class="w-14"></i> AI-Powered SugarNxt Hackathon Solution
                 </div>
-                <h1 class="animate-in" style="transition-delay: 0.15s;">
+                <h1 class="animate-in delay-150">
                     <span class="gradient-text">Convert Flue Gas Waste</span><br>
                     into Process Energy
                 </h1>
-                <p class="hero-subtitle animate-in" style="transition-delay: 0.3s;">
+                <p class="hero-subtitle animate-in delay-300">
                     Seamless waste heat recovery for juice heating. Optimize thermal ROI,
                     ensure operational resilience, and transform industrial waste into
                     sustainable energy with engineering-grade precision.
                 </p>
-                <div class="hero-cta-group animate-in" style="transition-delay: 0.45s;">
+                <div class="hero-cta-group animate-in delay-450">
                     <a href="simulation.html" class="btn btn-primary btn-lg" id="cta-simulate">
                         <i data-lucide="play"></i> Launch Simulation
                     </a>
@@ -177,8 +157,8 @@
         </section>
 
         <!-- How it Works Section -->
-        <section class="section section-animate section-bg section-bg-process" id="how-it-works"
-            style="background: rgba(255,255,255,0.02); border-radius: var(--radius-xl); margin-bottom: 4rem;">
+        <section class="section section-animate section-bg section-bg-process bg-soft var-radius-xl mb-8"
+            id="how-it-works">
             <div class="container">
                 <div class="section-header animate-in">
                     <h2>The <span class="gradient-text">Energy Capture</span> Cycle</h2>
@@ -215,12 +195,12 @@
                 <div class="split-layout">
                     <div class="split-text animate-in from-left">
                         <h2 class="section-title">Built for <span class="gradient-text">Industrial Scale</span></h2>
-                        <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                        <p class="mb-2 text-secondary">
                             ThermaVision accounts for the <strong>Specific Heat Capacity (Cp)</strong>
                             of divergent gas types and the <strong>Acid Dew Point</strong> thresholds required to
                             prevent equipment fouling.
                         </p>
-                        <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <ul class="feature-list mb-4">
                             <li><i data-lucide="check-circle" class="accent"></i> Energy Balance Modeling</li>
                             <li><i data-lucide="check-circle" class="accent"></i> 100% Bagasse Efficiency Logic</li>
                             <li><i data-lucide="check-circle" class="accent"></i> Automated Risk Mitigation</li>
@@ -230,10 +210,9 @@
                     </div>
                     <div class="split-image animate-in from-right animate-delay-2">
                         <div class="glass-box">
-                            <div
-                                style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-mono);">
+                            <div class="fs-sm text-muted mb-2 font-mono">
                                 // Core Thermodynamic Kernel</div>
-                            <pre style="margin: 0;"><code>
+                            <pre class="m-0"><code>
 Q = m * Cp * ΔT
 SteamSaved = Q / LatentHeat
 Efficiency = (Recovered / Input) * 100
@@ -245,13 +224,11 @@ Efficiency = (Recovered / Input) * 100
         </section>
 
         <!-- CTA Section -->
-        <section class="section section-animate section-bg section-bg-cta"
-            style="text-align: center; padding-bottom: 6rem;">
+        <section class="section section-animate section-bg section-bg-cta text-center p-empty">
             <div class="container">
-                <h2 class="animate-in" style="margin-bottom: 1rem;">Ready to <span class="gradient-text">Optimize Your
+                <h2 class="animate-in mb-1">Ready to <span class="gradient-text">Optimize Your
                         Plant</span>?</h2>
-                <p class="animate-in animate-delay-1"
-                    style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                <p class="animate-in animate-delay-1 text-secondary mb-4 full-width">
                     Join the SugarNxt movement. Convert your flue gas waste into process energy today.
                 </p>
                 <div class="animate-in scale-up animate-delay-2">
@@ -265,14 +242,17 @@ Efficiency = (Recovered / Input) * 100
     </main>
 
     <!-- Footer -->
-    <footer class="footer" style="background: var(--bg-primary); position: relative; z-index: 5;">
+    <footer class="footer bg-primary relative z-5">
         <p>&copy; 2026 <strong>ThermaVision</strong> | Team:
             <a href="https://github.com/KGFCH2" target="_blank" rel="noopener noreferrer" class="footer-link">Babin</a>,
-            <a href="https://github.com/DebasmitaBose0" target="_blank" rel="noopener noreferrer" class="footer-link">Debasmita</a>,
-            <a href="https://github.com/joitapaul" target="_blank" rel="noopener noreferrer" class="footer-link">Joita</a>,
-            <a href="https://github.com/mistu7debnath" target="_blank" rel="noopener noreferrer" class="footer-link">Manisha</a>
+            <a href="https://github.com/DebasmitaBose0" target="_blank" rel="noopener noreferrer"
+                class="footer-link">Debasmita</a>,
+            <a href="https://github.com/joitapaul" target="_blank" rel="noopener noreferrer"
+                class="footer-link">Joita</a>,
+            <a href="https://github.com/mistu7debnath" target="_blank" rel="noopener noreferrer"
+                class="footer-link">Manisha</a>
         </p>
-        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: var(--text-muted);">
+        <p class="fs-sm mt-1 text-muted">
             SugarNxt Hackathon 2026 Entry
         </p>
     </footer>
