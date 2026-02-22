@@ -55,8 +55,7 @@
 
             <!-- Header -->
             <div class="dash-header">
-                <h1><i data-lucide="layout-dashboard"
-                        style="vertical-align: middle; margin-right: 10px; color: var(--accent-cyan);"></i> Analysis
+                <h1><i data-lucide="layout-dashboard" class="v-middle mr-2 icon-cyan"></i> Analysis
                     <span class="gradient-text">Dashboard</span>
                 </h1>
                 <div class="dash-actions">
@@ -68,22 +67,20 @@
             </div>
 
             <!-- No Data State -->
-            <div id="no-data-state" style="text-align:center; padding: 6rem 2rem;">
-                <div style="font-size: 4rem; margin-bottom: 1rem; color: var(--text-muted);"><i
-                        data-lucide="bar-chart-3" style="width:80px; height:80px;"></i></div>
-                <h2 style="margin-bottom: 0.5rem;">No Analysis Data</h2>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Run a simulation first to see your results
-                    here.</p>
+            <div id="no-data-state" class="text-center p-empty">
+                <div class="fs-huge mb-4 text-muted"><i data-lucide="bar-chart-3" class="w-80"></i></div>
+                <h2 class="mb-1">No Analysis Data</h2>
+                <p class="text-secondary mb-4">Run a simulation first to see your results here.</p>
                 <a href="simulation.html" class="btn btn-primary btn-lg"><i data-lucide="rocket"></i> Start
                     Simulation</a>
             </div>
 
             <!-- Dashboard Content (hidden until data) -->
-            <div id="dashboard-content" style="display: none;">
+            <div id="dashboard-content" class="hidden">
 
                 <!-- AI Insight Banner -->
                 <div class="ai-insight-banner animate-in fade-only">
-                    <div class="ai-insight-label"><i data-lucide="brain-circuit" style="width:14px; height:14px;"></i>
+                    <div class="ai-insight-label"><i data-lucide="brain-circuit" class="w-14"></i>
                         AI Engineering Insight</div>
                     <p class="ai-insight-text" id="ai-summary-text"></p>
                 </div>
@@ -131,20 +128,20 @@
                 <!-- Charts -->
                 <div class="charts-grid">
                     <div class="chart-card">
-                        <h3><i data-lucide="bar-chart-4" style="width:18px;"></i> Steam Comparison — Before vs After
+                        <h3><i data-lucide="bar-chart-4" class="w-18"></i> Steam Comparison — Before vs After
                         </h3>
                         <div class="chart-canvas-wrapper">
                             <canvas id="chart-steam"></canvas>
                         </div>
                     </div>
                     <div class="chart-card">
-                        <h3><i data-lucide="pie-chart" style="width:18px;"></i> Energy Utilization Breakdown</h3>
+                        <h3><i data-lucide="pie-chart" class="w-18"></i> Energy Utilization Breakdown</h3>
                         <div class="chart-canvas-wrapper">
                             <canvas id="chart-energy"></canvas>
                         </div>
                     </div>
-                    <div class="chart-card" style="grid-column: 1 / -1;">
-                        <h3><i data-lucide="line-chart" style="width:18px;"></i> ROI Projection — 5-Year Outlook</h3>
+                    <div class="chart-card col-span-full">
+                        <h3><i data-lucide="line-chart" class="w-18"></i> ROI Projection — 5-Year Outlook</h3>
                         <div class="chart-canvas-wrapper">
                             <canvas id="chart-roi"></canvas>
                         </div>
@@ -153,7 +150,7 @@
 
                 <!-- Recommendation -->
                 <div class="recommendation-card">
-                    <h3><i data-lucide="target" style="width:18px;"></i> Intelligent Recommendation</h3>
+                    <h3><i data-lucide="target" class="w-18"></i> Intelligent Recommendation</h3>
                     <div class="rec-grid">
                         <div class="rec-item">
                             <div class="rec-item-label">Equipment Type</div>
@@ -165,15 +162,14 @@
                         </div>
                         <div class="rec-item">
                             <div class="rec-item-label">Improvement Detail</div>
-                            <div class="rec-item-value" id="rec-improvement"
-                                style="font-size:0.85rem; color: var(--text-secondary);">—</div>
+                            <div class="rec-item-value fs-sm text-secondary" id="rec-improvement">—</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Scenario Comparison -->
                 <div class="scenario-section">
-                    <h3><i data-lucide="layers" style="width:18px;"></i> Multi-Scenario Comparison</h3>
+                    <h3><i data-lucide="layers" class="w-18"></i> Multi-Scenario Comparison</h3>
                     <table class="scenario-table" id="scenario-table">
                         <thead>
                             <tr>
@@ -192,32 +188,33 @@
 
                 <!-- Sensitivity Analysis -->
                 <div class="sensitivity-section">
-                    <h3><i data-lucide="sliders" style="width:18px;"></i> Sensitivity Analysis</h3>
+                    <h3><i data-lucide="sliders" class="w-18"></i> Sensitivity Analysis</h3>
 
                     <div class="slider-group">
                         <div class="slider-header">
-                            <span class="slider-label">Fuel Cost Variation</span>
+                            <label for="sens-fuel" class="slider-label">Fuel Cost Variation</label>
                             <span class="slider-value" id="sens-fuel-value">$5.00/kg</span>
                         </div>
-                        <input type="range" class="range-slider" id="sens-fuel" min="0.5" max="50" step="0.5" value="5">
+                        <input type="range" class="range-slider" id="sens-fuel" min="0.5" max="50" step="0.5" value="5"
+                            title="Fuel Cost Variation">
                     </div>
 
                     <div class="slider-group">
                         <div class="slider-header">
-                            <span class="slider-label">Operating Hours</span>
+                            <label for="sens-hours" class="slider-label">Operating Hours</label>
                             <span class="slider-value" id="sens-hours-value">6,000 hrs</span>
                         </div>
                         <input type="range" class="range-slider" id="sens-hours" min="1000" max="8760" step="100"
-                            value="6000">
+                            value="6000" title="Operating Hours">
                     </div>
 
                     <div class="slider-group">
                         <div class="slider-header">
-                            <span class="slider-label">Installation Cost</span>
+                            <label for="sens-cost" class="slider-label">Installation Cost</label>
                             <span class="slider-value" id="sens-cost-value">$500,000</span>
                         </div>
                         <input type="range" class="range-slider" id="sens-cost" min="50000" max="5000000" step="10000"
-                            value="500000">
+                            value="500000" title="Installation Cost">
                     </div>
 
                     <div class="sensitivity-results">
@@ -238,57 +235,53 @@
 
                 <!-- 5-Year Climate Impact -->
                 <div class="climate-section">
-                    <h3><i data-lucide="globe" style="width:18px;"></i> Projected 5-Year Climate Impact</h3>
+                    <h3><i data-lucide="globe" class="w-18"></i> Projected 5-Year Climate Impact</h3>
                     <div class="climate-grid">
                         <div class="climate-item">
-                            <div class="climate-item-icon"><i data-lucide="factory"
-                                    style="width:40px; height:40px; color: var(--accent-green);"></i></div>
+                            <div class="climate-item-icon"><i data-lucide="factory" class="w-40 icon-green"></i></div>
                             <div class="climate-item-value" id="climate-co2">—</div>
                             <div class="climate-item-label">Total CO₂ Avoided (tons)</div>
                         </div>
                         <div class="climate-item">
-                            <div class="climate-item-icon"><i data-lucide="trees"
-                                    style="width:40px; height:40px; color: var(--accent-green);"></i></div>
+                            <div class="climate-item-icon"><i data-lucide="trees" class="w-40 icon-green"></i></div>
                             <div class="climate-item-value" id="climate-trees">—</div>
                             <div class="climate-item-label">Equivalent Trees Planted</div>
                         </div>
                         <div class="climate-item">
-                            <div class="climate-item-icon"><i data-lucide="car"
-                                    style="width:40px; height:40px; color: var(--accent-green);"></i></div>
+                            <div class="climate-item-icon"><i data-lucide="car" class="w-40 icon-green"></i></div>
                             <div class="climate-item-value" id="climate-cars">—</div>
                             <div class="climate-item-label">Equivalent Cars Removed</div>
                         </div>
                     </div>
                 </div>
                 <!-- Technical Context & Equipment Guide -->
-                <div class="section"
-                    style="margin-top: 4rem; background: rgba(255,255,255,0.01); padding: 3rem; border-radius: var(--radius-xl);">
-                    <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
-                        <h2 style="font-size: 1.5rem;">Technical <span class="gradient-text">Context</span> & Equipment
+                <div class="section mt-8 bg-soft p-12 var-radius-xl">
+                    <div class="section-header text-left mb-4">
+                        <h2 class="fs-lg">Technical <span class="gradient-text">Context</span> & Equipment
                             Guide</h2>
-                        <p style="margin: 0; max-width: 100%;">Deep dive into the components and methodology of your
+                        <p class="mb-1 full-width">Deep dive into the components and methodology of your
                             waste heat recovery system.</p>
                     </div>
-                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                        <div class="feature-card" style="padding: 1.5rem;">
-                            <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">Heat Exchanger (HE)</h4>
-                            <p style="font-size: 0.85rem;">For flue gas to juice recovery, we recommend
+                    <div class="features-grid grid-cols-auto">
+                        <div class="feature-card p-6">
+                            <h4 class="icon-cyan mb-1">Heat Exchanger (HE)</h4>
+                            <p class="fs-sm">For flue gas to juice recovery, we recommend
                                 <strong>Corrosion-Resistant Shell & Tube</strong> or specialized
                                 <strong>Plate Heat Exchangers</strong> with wide gaps for heavy particulate flue gas
                                 streams common in bagasse boilers.
                             </p>
                         </div>
-                        <div class="feature-card" style="padding: 1.5rem;">
-                            <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">Induced Draft (ID) Fan</h4>
-                            <p style="font-size: 0.85rem;">Installing a WHRU increases pressure drop (back-pressure). It
+                        <div class="feature-card p-6">
+                            <h4 class="icon-cyan mb-1">Induced Draft (ID) Fan</h4>
+                            <p class="fs-sm">Installing a WHRU increases pressure drop (back-pressure). It
                                 is critical to resize your
                                 <strong>ID Fans</strong> to ensure optimal boiler draft is maintained for stable
                                 combustion.
                             </p>
                         </div>
-                        <div class="feature-card" style="padding: 1.5rem;">
-                            <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">Corrosion Prevention</h4>
-                            <p style="font-size: 0.85rem;">Our logic monitors the <strong>Acid Dew Point (ADP)</strong>.
+                        <div class="feature-card p-6">
+                            <h4 class="icon-cyan mb-1">Corrosion Prevention</h4>
+                            <p class="fs-sm">Our logic monitors the <strong>Acid Dew Point (ADP)</strong>.
                                 To prevent sulphuric acid fouling,
                                 the flue gas exit temperature must be controlled via automated bypass dampers when
                                 operating at low loads.</p>
@@ -304,9 +297,12 @@
     <footer class="footer">
         <p>© 2026 <strong>ThermaVision</strong> | Team:
             <a href="https://github.com/KGFCH2" target="_blank" rel="noopener noreferrer" class="footer-link">Babin</a>,
-            <a href="https://github.com/DebasmitaBose0" target="_blank" rel="noopener noreferrer" class="footer-link">Debasmita</a>,
-            <a href="https://github.com/joitapaul" target="_blank" rel="noopener noreferrer" class="footer-link">Joita</a>,
-            <a href="https://github.com/mistu7debnath" target="_blank" rel="noopener noreferrer" class="footer-link">Manisha</a>
+            <a href="https://github.com/DebasmitaBose0" target="_blank" rel="noopener noreferrer"
+                class="footer-link">Debasmita</a>,
+            <a href="https://github.com/joitapaul" target="_blank" rel="noopener noreferrer"
+                class="footer-link">Joita</a>,
+            <a href="https://github.com/mistu7debnath" target="_blank" rel="noopener noreferrer"
+                class="footer-link">Manisha</a>
         </p>
     </footer>
 
