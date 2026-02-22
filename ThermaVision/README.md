@@ -1,6 +1,10 @@
 # 🔥 ThermaVision — Smart Flue Gas Waste Heat Recovery Intelligence Portal
 
 <div align="center">
+  <img src="https://images.unsplash.com/photo-1704797771332-fca2526315dd?q=80&w=900&auto=format&fit=crop" alt="Industrial Smokestack — Flue Gas Waste Heat" width="800" style="border-radius:12px;">
+  <br>
+  <em>Capturing waste heat from industrial flue gas to power sugar mill operations</em>
+  <br><br>
   <p><b>SugarNxt Hackathon 2026 Entry</b></p>
   <p>AI-powered industrial energy optimization platform for waste heat analysis, CO₂ reduction, and ROI calculation.</p>
 </div>
@@ -9,30 +13,35 @@
 
 ## 📋 Table of Contents
 
-- [👥 Meet the Team](#-meet-the-team)
-- [🎯 Project Objective](#-project-objective)
-- [🔴 Problem Statement](#-problem-statement)
-- [✨ Key Features](#-key-features)
-- [🏗️ Technical Architecture](#️-technical-architecture)
-- [📂 Folder Structure](#-folder-structure)
-- [⚙️ Installation & Setup](#️-installation--setup)
-- [🚀 Running the Application](#-running-the-application)
-- [📖 Technical Instructions](#-technical-instructions)
-- [🌐 API Documentation](#-api-documentation)
-- [🚢 Deployment](#-deployment)
+- [👥 Meet the Team](#meet-the-team)
+- [🎯 Project Objective](#project-objective)
+- [🔴 Problem Statement](#problem-statement)
+- [✨ Key Features](#key-features)
+- [🏗️ Technical Architecture](#technical-architecture)
+- [📂 Folder Structure](#folder-structure)
+- [⚙️ Installation & Setup](#installation-setup)
+- [🚀 Running the Application](#running-the-application)
+- [📖 Technical Instructions](#technical-instructions)
+- [🌐 API Documentation](#api-documentation)
+- [🚢 Deployment](#deployment)
+- [🎨 UI Features](#ui-features)
 
 ---
+
+<a id="meet-the-team"></a>
 
 ## 👥 Meet the Team
 
 I am proud to present the engineering team behind **ThermaVision**, participating in the **SugarNxt Hackathon 2026**:
 
-1. **Babin Bid** (Team Leader)
-2. **Debasmita Bose**
-3. **Joita Paul**
-4. **Manisha Debnath**
+1. **Babin Bid** (Team Leader & Developer) — [@KGFCH2](https://github.com/KGFCH2)
+2. **Debasmita Bose** (Developer) — [@DebasmitaBose0](https://github.com/DebasmitaBose0)
+3. **Joita Paul** (Developer) — [@joitapaul](https://github.com/joitapaul)
+4. **Manisha Debnath** (Developer) — [@mistu7debnath](https://github.com/mistu7debnath)
 
 ---
+
+<a id="project-objective"></a>
 
 ## 🎯 Project Objective
 
@@ -46,7 +55,14 @@ My project provides a high-fidelity simulation and decision-support tool to:
 
 ---
 
+<a id="problem-statement"></a>
+
 ## 🔴 Problem Statement
+
+<div align="center">
+<img src="https://images.unsplash.com/photo-1741327921304-84bd83421774?q=80&w=800&auto=format&fit=crop" alt="Sugar Cane Transport — Sugar Mill Industry" width="700" style="border-radius:10px;">
+<br><em>Sugarcane being transported to the mill — where bagasse-fired boilers generate flue gas waste</em>
+</div>
 
 The sugar industry is one of the most energy-intensive sectors, where boilers consume massive amounts of **Bagasse** (biomass) to generate high-pressure steam. Traditionally, a significant portion of this thermal energy is lost to the atmosphere through **Flue Gases** exiting at high temperatures (160°C – 250°C).
 
@@ -61,6 +77,8 @@ The sugar industry is one of the most energy-intensive sectors, where boilers co
 
 ---
 
+<a id="key-features"></a>
+
 ## ✨ Key Features
 
 - **3D Intelligence UI**: Modern dashboard with Three.js visualizations and Lucide iconography.
@@ -72,6 +90,8 @@ The sugar industry is one of the most energy-intensive sectors, where boilers co
 
 ---
 
+<a id="technical-architecture"></a>
+
 ## 🏗️ Technical Architecture
 
 I have built a robust **Full-Stack** solution where both ends share equal engineering weight:
@@ -80,6 +100,8 @@ I have built a robust **Full-Stack** solution where both ends share equal engine
 - **Frontend**: HTML5, CSS3 (Glassmorphism), JavaScript (ES6+), Three.js, Chart.js. Handles visualization and UX.
 
 ---
+
+<a id="folder-structure"></a>
 
 ## 📂 Folder Structure
 
@@ -104,6 +126,8 @@ ThermaVision/
 ```
 
 ---
+
+<a id="installation-setup"></a>
 
 ## ⚙️ Installation & Setup
 
@@ -146,6 +170,8 @@ pip install -r requirements.txt
 > **Note:** The `requirements.txt` includes `fastapi`, `uvicorn`, `fpdf2`, and `pydantic`.
 
 ---
+
+<a id="running-the-application"></a>
 
 ## 🚀 Running the Application
 
@@ -196,6 +222,8 @@ Serving HTTP on :: port 3000 ...
 
 ---
 
+<a id="technical-instructions"></a>
+
 ## 📖 Technical Instructions
 
 For a file-by-file explanation, backend-frontend connection logic, and a deep dive into the engineering math, please refer to my primary instruction document:
@@ -203,6 +231,8 @@ For a file-by-file explanation, backend-frontend connection logic, and a deep di
 👉 **[Read INSTRUCTIONS.md](./INSTRUCTIONS.md)**
 
 ---
+
+<a id="api-documentation"></a>
 
 ## 🌐 API Documentation
 
@@ -230,6 +260,8 @@ Performs full thermodynamic and financial analysis.
 Generates and downloads a timestamped PDF technical report based on the analysis data.
 
 ---
+
+<a id="deployment"></a>
 
 ## 🚢 Deployment Guide
 
@@ -276,6 +308,8 @@ const API_BASE = 'https://thermavision-api.onrender.com';
 CORS is already pre-configured in `backend/app/main.py` to allow all origins. For production, you can restrict it to your frontend domain.
 
 ---
+
+<a id="ui-features"></a>
 
 ## 🎨 UI Features
 
