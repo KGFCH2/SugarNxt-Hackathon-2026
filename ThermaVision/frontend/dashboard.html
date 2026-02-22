@@ -21,22 +21,15 @@
 
 <body>
 
-    <!-- Hero Background Slider (Stateless) -->
-    <div class="hero-slider">
-        <div class="slide active"
-            style="background-image: linear-gradient(rgba(6, 9, 15, 0.8), rgba(6, 9, 15, 0.8)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop');">
-        </div>
-    </div>
-
     <!-- Three.js Canvas -->
     <canvas id="three-canvas"></canvas>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-brand">
+        <a href="index.html" class="nav-brand">
             <div class="nav-brand-icon"><i data-lucide="flame"></i></div>
             <span>ThermaVision</span>
-        </div>
+        </a>
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="simulation.html">Simulation</a></li>
@@ -90,7 +83,7 @@
             <div id="dashboard-content" style="display: none;">
 
                 <!-- AI Insight Banner -->
-                <div class="ai-insight-banner animate-in">
+                <div class="ai-insight-banner animate-in fade-only">
                     <div class="ai-insight-label"><i data-lucide="brain-circuit" style="width:14px; height:14px;"></i>
                         AI Engineering Insight</div>
                     <p class="ai-insight-text" id="ai-summary-text"></p>
@@ -104,32 +97,32 @@
 
                 <!-- Metric Cards -->
                 <div class="metrics-grid">
-                    <div class="metric-card heat animate-in animate-delay-1">
+                    <div class="metric-card heat animate-in from-left animate-delay-1">
                         <div class="metric-icon"><i data-lucide="flame"></i></div>
                         <div class="metric-value" id="metric-heat">—</div>
                         <div class="metric-label">Heat Recovered (kW)</div>
                     </div>
-                    <div class="metric-card steam animate-in animate-delay-2">
+                    <div class="metric-card steam animate-in scale-up animate-delay-2">
                         <div class="metric-icon"><i data-lucide="waves"></i></div>
                         <div class="metric-value" id="metric-steam">—</div>
                         <div class="metric-label">Steam Saved (kg/hr)</div>
                     </div>
-                    <div class="metric-card savings animate-in animate-delay-3">
+                    <div class="metric-card savings animate-in from-right animate-delay-3">
                         <div class="metric-icon"><i data-lucide="banknote"></i></div>
                         <div class="metric-value" id="metric-savings">—</div>
                         <div class="metric-label">Annual Savings</div>
                     </div>
-                    <div class="metric-card payback animate-in animate-delay-4">
+                    <div class="metric-card payback animate-in from-left animate-delay-4">
                         <div class="metric-icon"><i data-lucide="trending-up"></i></div>
                         <div class="metric-value" id="metric-payback">—</div>
                         <div class="metric-label">Payback Period (yrs)</div>
                     </div>
-                    <div class="metric-card co2 animate-in animate-delay-5">
+                    <div class="metric-card co2 animate-in scale-up animate-delay-5">
                         <div class="metric-icon"><i data-lucide="leaf"></i></div>
                         <div class="metric-value" id="metric-co2">—</div>
                         <div class="metric-label">CO₂ Reduction (t/yr)</div>
                     </div>
-                    <div class="metric-card eff animate-in animate-delay-6">
+                    <div class="metric-card eff animate-in from-right animate-delay-6">
                         <div class="metric-icon"><i data-lucide="zap"></i></div>
                         <div class="metric-value" id="metric-eff">—</div>
                         <div class="metric-label">Efficiency Gain</div>
