@@ -1,9 +1,11 @@
-ThermaVision/backend/venv/
 **/__pycache__/
 *.py[cod]
 *$py.class
+.venv/
+.vscode/
 
 # environment file for chatbot support (keep locally only)
+ThermaVision/backend/venv/
 ThermaVision/backend/.env
 ThermaVision/backend/.vscode/
 
