@@ -145,6 +145,26 @@ a:hover {
     }
 }
 
+/* --- Global Icon Hover Effect --- */
+[data-lucide] {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease, filter 0.3s ease;
+}
+
+[data-lucide]:hover {
+    transform: scale(1.18);
+    color: #ffffff;
+    /* Changed from yellow to white for maximum contrast */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+/* Specific contrast for icons already on primary/accent backgrounds */
+.btn-primary:hover [data-lucide],
+.nav-brand-icon:hover [data-lucide],
+.hero-badge:hover [data-lucide] {
+    color: #ffffff;
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}
+
 /* ---------- Animated Background Particles ---------- */
 .bg-particles {
     position: fixed;
