@@ -18,7 +18,8 @@
         "who developed this?": "This project was developed by Team Four-0-Four (Babin, Debasmita, Joita, and Manisha) for the SugarNxt Hackathon 2026.",
         "is it safe for the boiler?": "Yes, ThermaVision includes warnings for the 'Acid Dew Point'. We recommend keeping outlet temps above 120°C to prevent sulphuric acid corrosion in the stack.",
         "technical stack": "The backend is built with FastAPI (Python) for thermodynamics and AI. The frontend uses Vanilla JS, Three.js for 3D, and Chart.js for data visualization.",
-        "tech stack": "The backend is built with FastAPI (Python) for thermodynamics and AI. The frontend uses Vanilla JS, Three.js for 3D, and Chart.js for data visualization."
+        "tech stack": "The backend is built with FastAPI (Python) for thermodynamics and AI. The frontend uses Vanilla JS, Three.js for 3D, and Chart.js for data visualization.",
+        "technical stack?": "The backend is built with FastAPI (Python) for thermodynamics and AI. The frontend uses Vanilla JS, Three.js for 3D, and Chart.js for data visualization."
     };
 
     const SUGGESTIONS = [
