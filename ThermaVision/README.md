@@ -1,4 +1,4 @@
-# 🔥 ThermaVision — Smart Flue Gas Waste Heat Recovery Intelligence Portal
+# 🚀 ThermaVision — Smart Flue Gas Waste Heat Recovery Intelligence Portal
 
 ## Capturing waste heat from industrial flue gas to power sugar mill operations
 
@@ -8,7 +8,7 @@ AI-powered industrial energy optimization platform for waste heat analysis, CO�
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [👥 Meet the Team](#meet-the-team)
 - [🎯 Project Objective](#project-objective)
@@ -16,7 +16,7 @@ AI-powered industrial energy optimization platform for waste heat analysis, CO�
 - [✨ Key Features](#key-features)
 - [🏗️ Technical Architecture](#technical-architecture)
 - [📂 Folder Structure](#folder-structure)
-- [⚙️ Installation & Setup](#installation-setup)
+- [⚙️ Installation & Setup](#installation-and-setup)
 - [🚀 Running the Application](#running-the-application)
 - [📖 Technical Instructions](#technical-instructions)
 - [🌐 API Documentation](#api-documentation)
@@ -25,7 +25,7 @@ AI-powered industrial energy optimization platform for waste heat analysis, CO�
 
 ---
 
-## 👥 Meet the Team
+## Meet the Team
 
 I am proud to present the engineering team behind **ThermaVision**, participating in the **SugarNxt Hackathon 2026**:
 
@@ -36,7 +36,7 @@ I am proud to present the engineering team behind **ThermaVision**, participatin
 
 ---
 
-## 🎯 Project Objective
+## Project Objective
 
 The sugar industry generates massive amounts of flue gas as waste. **ThermaVision** is designed to capture this lost energy. By installing a waste heat recovery unit (WHRU), plants can pre-heat raw juice using flue gases, directly reducing the steam demand from the boiler.
 
@@ -48,7 +48,7 @@ My project provides a high-fidelity simulation and decision-support tool to:
 
 ---
 
-## 🔴 Problem Statement
+## Problem Statement
 
 _Sugarcane being transported to the mill — where bagasse-fired boilers generate flue gas waste._
 
@@ -65,7 +65,7 @@ The sugar industry is one of the most energy-intensive sectors, where boilers co
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **3D Intelligence UI**: Modern dashboard with Three.js visualizations and Lucide iconography.
 - **Thermodynamic Engine**: Precise energy-balance calculations for industrial scale ($Q = \dot{m} \times C_p \times \Delta T$).
@@ -76,7 +76,7 @@ The sugar industry is one of the most energy-intensive sectors, where boilers co
 
 ---
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 I have built a robust **Full-Stack** solution where both ends share equal engineering weight:
 
@@ -85,7 +85,7 @@ I have built a robust **Full-Stack** solution where both ends share equal engine
 
 ---
 
-## 📂 Folder Structure
+## Folder Structure
 
 ```bash
 ThermaVision/
@@ -109,7 +109,7 @@ ThermaVision/
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation and Setup
 
 ### Prerequisites
 
@@ -151,7 +151,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Running the Application
+## Running the Application
 
 ### Step 1 — Start the Backend Server
 
@@ -200,7 +200,7 @@ Serving HTTP on :: port 3000 ...
 
 ---
 
-## 📖 Technical Instructions
+## Technical Instructions
 
 For a file-by-file explanation, backend-frontend connection logic, and a deep dive into the engineering math, please refer to my primary instruction document:
 
@@ -208,7 +208,7 @@ For a file-by-file explanation, backend-frontend connection logic, and a deep di
 
 ---
 
-## 🌐 API Documentation
+## API Documentation
 
 ### `POST /analyze`
 
@@ -235,7 +235,7 @@ Generates and downloads a timestamped PDF technical report based on the analysis
 
 ---
 
-## 🚢 Deployment Guide
+## Deployment Guide
 
 Deploying ThermaVision to the cloud is straightforward since the backend and frontend are decoupled.
 
@@ -281,7 +281,7 @@ CORS is already pre-configured in `backend/app/main.py` to allow all origins. Fo
 
 ---
 
-## 🎨 UI Features
+## UI Features
 
 - **Crossfade Image Carousel** — Smooth background transitions with always-visible images (no blank frames)
 - **Scroll In/Out Animations** — Elements animate in when scrolling down and gracefully animate out when scrolling up
@@ -291,7 +291,7 @@ CORS is already pre-configured in `backend/app/main.py` to allow all origins. Fo
 
 ---
 
-## 📝 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](../LICENSE) file for details.
 
