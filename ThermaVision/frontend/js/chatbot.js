@@ -99,10 +99,14 @@
 
     // Typewriter effect (Copilot animation)
     function typeMessage(element, text, speed = 20) {
+        if (!text) {
+            element.textContent = "...";
+            return;
+        }
         let i = 0;
         element.textContent = '';
         element.classList.add('typing');
-        
+
         function type() {
             if (i < text.length) {
                 element.textContent += text.charAt(i);
@@ -127,7 +131,7 @@
         // Check mock responses first
         const lowerMsg = message.toLowerCase();
         let foundMock = false;
-        
+
         for (const [key, val] of Object.entries(MOCK_ANSWERS)) {
             if (lowerMsg.includes(key)) {
                 showBotResponse(val);
@@ -145,9 +149,9 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: message })
                 });
-                
+
                 if (!res.ok) throw new Error('AI Service Offline');
-                
+
                 const data = await res.json();
                 removeBotLoading();
                 showBotResponse(data.response);
