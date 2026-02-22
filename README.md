@@ -2,6 +2,12 @@
 
 <div align="center">
 
+<img src="https://images.unsplash.com/photo-1601488375063-cbb5e251c63f?q=80&w=900&auto=format&fit=crop" alt="Industrial Power Plant — Flue Gas Waste Heat Recovery" width="800" style="border-radius:12px;">
+
+<br>
+<em>Converting Flue Gas Waste into Process Energy — Smart Heat Recovery for Sugar Mills</em>
+<br><br>
+
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Three.js](https://img.shields.io/badge/three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)
@@ -14,17 +20,19 @@
 
 ## 📚 Table of Contents
 
-- [✨ Overview](#-overview)
-- [🏛️ About ISMA](#️-about-isma)
-- [🧩 Hackathon Problem Statements](#-hackathon-problem-statements)
-- [🔥 ThermaVision — Our PS-5 Solution](#-thermavision--our-ps-5-solution)
-- [🏗️ Technical Architecture](#️-technical-architecture)
-- [▶️ Quick Start — Run Locally](#️-quick-start--run-locally)
-- [👥 Team Four-0-Four](#-team-four-0-four)
-- [📂 Project Structure](#-project-structure)
-- [🤝 Future Roadmap](#-future-roadmap)
+- [✨ Overview](#overview)
+- [🏛️ About ISMA](#about-isma)
+- [🧩 Hackathon Problem Statements](#hackathon-problem-statements)
+- [🔥 ThermaVision — Our PS-5 Solution](#thermavision-solution)
+- [🏗️ Technical Architecture](#technical-architecture)
+- [▶️ Quick Start — Run Locally](#quick-start)
+- [👥 Team Four-0-Four](#team)
+- [📂 Project Structure](#project-structure)
+- [🤝 Future Roadmap](#future-roadmap)
 
 ---
+
+<a id="overview"></a>
 
 ## ✨ Overview
 
@@ -36,6 +44,8 @@ Our submission, **ThermaVision**, addresses **PS-5**: *Converting Flue Gas Waste
 
 ---
 
+<a id="about-isma"></a>
+
 ## 🏛️ About ISMA
 
 The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarcane sector for over nine decades. ISMA works closely with policymakers, industry leaders, and farmers to modernize operations and drive sustainable growth.
@@ -43,6 +53,8 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 🌐 **Website:** [https://ismaindia.org](https://ismaindia.org)
 
 ---
+
+<a id="hackathon-problem-statements"></a>
 
 ## 🧩 Hackathon Problem Statements
 
@@ -57,7 +69,14 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 
 ---
 
+<a id="thermavision-solution"></a>
+
 ## 🔥 ThermaVision — Our PS-5 Solution
+
+<div align="center">
+<img src="https://images.unsplash.com/photo-1743190265512-65817e36eb49?q=80&w=800&auto=format&fit=crop" alt="Smokestack — Flue Gas Emissions from Industrial Boiler" width="700" style="border-radius:10px;">
+<br><em>Flue gas emissions from industrial boilers — a massive untapped energy source</em>
+</div>
 
 ### 🎯 Objective
 
@@ -72,6 +91,8 @@ Capture thermal energy potential from boiler flue gas and convert it into usable
 
 ---
 
+<a id="technical-architecture"></a>
+
 ## 🏗️ Technical Architecture
 
 We have built a robust **Decoupled Full-Stack** solution:
@@ -80,6 +101,8 @@ We have built a robust **Decoupled Full-Stack** solution:
 - **Frontend**: HTML5, Vanilla CSS (Glassmorphism), JavaScript (ES6+), Three.js, Chart.js.
 
 ---
+
+<a id="quick-start"></a>
 
 ## ▶️ Quick Start — Run ThermaVision Locally
 
@@ -145,18 +168,22 @@ Go to **<http://localhost:3000>** — The ThermaVision portal is now live!
 
 ---
 
+<a id="team"></a>
+
 ## 👥 Team Four-0-Four
 
 We are a dedicated group of engineers passionate about industrial sustainability.
 
-| Name | Role |
-| :--- | :--- |
-| **Babin Bid** | Team Lead & Full-Stack Architect |
-| **Debasmita Bose** | Engineering Logic |
-| **Joita Paul** | Frontend UX & Data Visualization |
-| **Manisha Debnath** | Documentation & Quality Assurance |
+| Name | Role | GitHub |
+| :--- | :--- | :--- |
+| **Babin Bid** | Team Leader & Developer | [@KGFCH2](https://github.com/KGFCH2) |
+| **Debasmita Bose** | Developer | [@DebasmitaBose0](https://github.com/DebasmitaBose0) |
+| **Joita Paul** | Developer | [@joitapaul](https://github.com/joitapaul) |
+| **Manisha Debnath** | Developer | [@mistu7debnath](https://github.com/mistu7debnath) |
 
 ---
+
+<a id="project-structure"></a>
 
 ## 📂 Project Structure
 
@@ -177,6 +204,8 @@ ThermaVision/
 ```
 
 ---
+
+<a id="future-roadmap"></a>
 
 ## 🤝 Future Roadmap
 
