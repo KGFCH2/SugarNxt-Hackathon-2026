@@ -130,12 +130,12 @@
                 data: [steamDemand, steamAfter, data.steam_saved_kg_hr],
                 backgroundColor: [
                     'rgba(255, 107, 53, 0.7)',
-                    'rgba(0, 212, 255, 0.7)',
+                    'rgba(251, 191, 36, 0.6)',
                     'rgba(0, 255, 136, 0.7)',
                 ],
                 borderColor: [
                     'rgba(255, 107, 53, 1)',
-                    'rgba(0, 212, 255, 1)',
+                    'rgba(251, 191, 36, 1)',
                     'rgba(0, 255, 136, 1)',
                 ],
                 borderWidth: 2,
@@ -179,11 +179,11 @@
             datasets: [{
                 data: [data.energy_recovered_pct, data.energy_lost_pct],
                 backgroundColor: [
-                    'rgba(0, 212, 255, 0.8)',
+                    'rgba(251, 191, 36, 0.8)',
                     'rgba(100, 116, 139, 0.4)',
                 ],
                 borderColor: [
-                    'rgba(0, 212, 255, 1)',
+                    'rgba(251, 191, 36, 1)',
                     'rgba(100, 116, 139, 0.6)',
                 ],
                 borderWidth: 2,
@@ -223,12 +223,12 @@
             datasets: [{
                 label: 'Cumulative ROI (%)',
                 data: roiData,
-                borderColor: '#a855f7',
-                backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                borderColor: '#ff4757',
+                backgroundColor: 'rgba(255, 71, 87, 0.1)',
                 fill: true,
                 tension: 0.4,
-                pointBackgroundColor: '#a855f7',
-                pointBorderColor: '#fff',
+                pointBackgroundColor: '#ff4757',
+                pointBorderColor: '#fbbf24',
                 pointBorderWidth: 2,
                 pointRadius: 5,
                 pointHoverRadius: 8,
