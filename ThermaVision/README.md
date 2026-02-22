@@ -1,8 +1,7 @@
 # 🔥 ThermaVision — Smart Flue Gas Waste Heat Recovery Intelligence Portal
 
-**Capturing waste heat from industrial flue gas to power sugar mill operations**
-
-**SugarNxt Hackathon 2026 Entry**
+### Capturing waste heat from industrial flue gas to power sugar mill operations
+#### SugarNxt Hackathon 2026 Entry
 
 AI-powered industrial energy optimization platform for waste heat analysis, CO₂ reduction, and ROI calculation.
 
@@ -16,16 +15,14 @@ AI-powered industrial energy optimization platform for waste heat analysis, CO�
 - [✨ Key Features](#key-features)
 - [🏗️ Technical Architecture](#technical-architecture)
 - [📂 Folder Structure](#folder-structure)
-- [⚙️ Installation & Setup](#installation-setup)
+- [⚙️ Installation & Setup](#installation--setup)
 - [🚀 Running the Application](#running-the-application)
 - [📖 Technical Instructions](#technical-instructions)
 - [🌐 API Documentation](#api-documentation)
-- [🚢 Deployment](#deployment)
+- [🚢 Deployment](#deployment-guide)
 - [🎨 UI Features](#ui-features)
 
 ---
-
-<a id="meet-the-team"></a>
 
 ## 👥 Meet the Team
 
@@ -37,8 +34,6 @@ I am proud to present the engineering team behind **ThermaVision**, participatin
 4. **Manisha Debnath** (Developer) — [@mistu7debnath](https://github.com/mistu7debnath)
 
 ---
-
-<a id="project-objective"></a>
 
 ## 🎯 Project Objective
 
@@ -52,11 +47,9 @@ My project provides a high-fidelity simulation and decision-support tool to:
 
 ---
 
-<a id="problem-statement"></a>
-
 ## 🔴 Problem Statement
 
-*Sugarcane being transported to the mill — where bagasse-fired boilers generate flue gas waste*
+_Sugarcane being transported to the mill — where bagasse-fired boilers generate flue gas waste._
 
 The sugar industry is one of the most energy-intensive sectors, where boilers consume massive amounts of **Bagasse** (biomass) to generate high-pressure steam. Traditionally, a significant portion of this thermal energy is lost to the atmosphere through **Flue Gases** exiting at high temperatures (160°C – 250°C).
 
@@ -71,8 +64,6 @@ The sugar industry is one of the most energy-intensive sectors, where boilers co
 
 ---
 
-<a id="key-features"></a>
-
 ## ✨ Key Features
 
 - **3D Intelligence UI**: Modern dashboard with Three.js visualizations and Lucide iconography.
@@ -84,8 +75,6 @@ The sugar industry is one of the most energy-intensive sectors, where boilers co
 
 ---
 
-<a id="technical-architecture"></a>
-
 ## 🏗️ Technical Architecture
 
 I have built a robust **Full-Stack** solution where both ends share equal engineering weight:
@@ -94,8 +83,6 @@ I have built a robust **Full-Stack** solution where both ends share equal engine
 - **Frontend**: HTML5, CSS3 (Glassmorphism), JavaScript (ES6+), Three.js, Chart.js. Handles visualization and UX.
 
 ---
-
-<a id="folder-structure"></a>
 
 ## 📂 Folder Structure
 
@@ -121,17 +108,15 @@ ThermaVision/
 
 ---
 
-<a id="installation-setup"></a>
-
 ## ⚙️ Installation & Setup
 
 ### Prerequisites
 
 Before you begin, make sure the following are installed on your machine:
 
-- **Python 3.9+** — ([Download Python](https://www.python.org/downloads/))
+- **Python 3.9+** — [Download Python](https://www.python.org/downloads/)
 - **pip** — Comes bundled with Python
-- **Git** — ([Download Git](https://git-scm.com/downloads))
+- **Git** — [Download Git](https://git-scm.com/downloads)
 - A modern web browser (Chrome, Edge, Firefox)
 
 ### 1. Clone the Repository
@@ -165,8 +150,6 @@ pip install -r requirements.txt
 
 ---
 
-<a id="running-the-application"></a>
-
 ## 🚀 Running the Application
 
 ### Step 1 — Start the Backend Server
@@ -180,8 +163,10 @@ python run.py
 
 You should see output like:
 
+```text
 INFO:     Uvicorn running on http://127.0.0.1:8080
 INFO:     Application startup complete.
+```
 
 **Backend is now live at:** `http://127.0.0.1:8080`
 
@@ -196,15 +181,15 @@ python -m http.server 3000 --bind 127.0.0.1
 
 You should see:
 
-```
+```text
 Serving HTTP on :: port 3000 ...
 ```
 
-**Frontend is now live at:** `http://127.0.0.1:3000`
+**Frontend is now live at:** [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
 ### Step 3 — Use the Application
 
-1. Open your browser and go to **<http://127.0.0.1:3000>**
+1. Open your browser and go to [http://127.0.0.1:3000](http://127.0.0.1:3000)
 2. You'll land on the **Home** page with a 3D particle background and image carousel
 3. Click **Launch Simulation** to enter plant parameters
 4. After submitting, the app calls the backend API and redirects you to the **Dashboard**
@@ -214,8 +199,6 @@ Serving HTTP on :: port 3000 ...
 
 ---
 
-<a id="technical-instructions"></a>
-
 ## 📖 Technical Instructions
 
 For a file-by-file explanation, backend-frontend connection logic, and a deep dive into the engineering math, please refer to my primary instruction document:
@@ -223,8 +206,6 @@ For a file-by-file explanation, backend-frontend connection logic, and a deep di
 👉 **[Read INSTRUCTIONS.md](./INSTRUCTIONS.md)**
 
 ---
-
-<a id="api-documentation"></a>
 
 ## 🌐 API Documentation
 
@@ -252,8 +233,6 @@ Performs full thermodynamic and financial analysis.
 Generates and downloads a timestamped PDF technical report based on the analysis data.
 
 ---
-
-<a id="deployment"></a>
 
 ## 🚢 Deployment Guide
 
@@ -301,8 +280,6 @@ CORS is already pre-configured in `backend/app/main.py` to allow all origins. Fo
 
 ---
 
-<a id="ui-features"></a>
-
 ## 🎨 UI Features
 
 - **Crossfade Image Carousel** — Smooth background transitions with always-visible images (no blank frames)
@@ -318,4 +295,5 @@ CORS is already pre-configured in `backend/app/main.py` to allow all origins. Fo
 This project is licensed under the **MIT License** - see the [LICENSE](../LICENSE) file for details.
 
 ---
+
 *Developed for the SugarNxt Hackathon 2026. Converting industrial waste into process energy.*
