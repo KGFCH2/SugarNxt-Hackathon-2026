@@ -8,12 +8,17 @@
     const API_BASE = 'http://localhost:8000';
 
     const MOCK_ANSWERS = {
+        "hello": "Hello! I'm ThermaBot. How can I help you optimize your sugar mill's energy recovery today?",
+        "hi": "Hello! I'm ThermaBot. How can I help you optimize your sugar mill's energy recovery today?",
+        "hey": "Hello! I'm ThermaBot. How can I help you optimize your sugar mill's energy recovery today?",
         "what is thermavision?": "ThermaVision is an industrial energy optimization platform designed for the sugar industry. It simulates and calculates the feasibility of recovering waste heat from flue gases to pre-heat raw juice, reducing boiler energy demand.",
+        "thermavision": "ThermaVision is an industrial energy optimization platform designed for the sugar industry. It simulates and calculates the feasibility of recovering waste heat from flue gases to pre-heat raw juice, reducing boiler energy demand.",
         "how does it work?": "It uses the thermodynamic principle Q = m * Cp * dT. By diverting high-temperature flue gas (150°C - 450°C) through a heat exchanger, we transfer energy to the juice stream, saving bagasse fuel and reducing CO₂.",
         "what are the benefits?": "The key benefits are: 1. Significant fuel (Bagasse) savings. 2. Reduced CO₂ footprint. 3. Improved plant efficiency. 4. Rapid ROI (usually 1.5 - 3 years).",
         "who developed this?": "This project was developed by Team Four-0-Four (Babin, Debasmita, Joita, and Manisha) for the SugarNxt Hackathon 2026.",
         "is it safe for the boiler?": "Yes, ThermaVision includes warnings for the 'Acid Dew Point'. We recommend keeping outlet temps above 120°C to prevent sulphuric acid corrosion in the stack.",
-        "what is the technical stack?": "The backend is built with FastAPI (Python) for thermodynamics and AI. The frontend uses Vanilla JS, Three.js for 3D, and Chart.js for data visualization."
+        "technical stack": "The backend is built with FastAPI (Python) for thermodynamics and AI. The frontend uses Vanilla JS, Three.js for 3D, and Chart.js for data visualization.",
+        "tech stack": "The backend is built with FastAPI (Python) for thermodynamics and AI. The frontend uses Vanilla JS, Three.js for 3D, and Chart.js for data visualization."
     };
 
     const SUGGESTIONS = [
