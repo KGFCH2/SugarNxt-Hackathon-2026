@@ -1,13 +1,10 @@
 # 🔥 ThermaVision — Smart Flue Gas Waste Heat Recovery Intelligence Portal
 
-<div align="center">
-  <img src="https://images.unsplash.com/photo-1704797771332-fca2526315dd?q=80&w=900&auto=format&fit=crop" alt="Industrial Smokestack — Flue Gas Waste Heat" width="800" style="border-radius:12px;">
-  <br>
-  <em>Capturing waste heat from industrial flue gas to power sugar mill operations</em>
-  <br><br>
-  <p><b>SugarNxt Hackathon 2026 Entry</b></p>
-  <p>AI-powered industrial energy optimization platform for waste heat analysis, CO₂ reduction, and ROI calculation.</p>
-</div>
+**Capturing waste heat from industrial flue gas to power sugar mill operations**
+
+**SugarNxt Hackathon 2026 Entry**
+
+AI-powered industrial energy optimization platform for waste heat analysis, CO₂ reduction, and ROI calculation.
 
 ---
 
@@ -59,10 +56,7 @@ My project provides a high-fidelity simulation and decision-support tool to:
 
 ## 🔴 Problem Statement
 
-<div align="center">
-<img src="https://images.unsplash.com/photo-1741327921304-84bd83421774?q=80&w=800&auto=format&fit=crop" alt="Sugar Cane Transport — Sugar Mill Industry" width="700" style="border-radius:10px;">
-<br><em>Sugarcane being transported to the mill — where bagasse-fired boilers generate flue gas waste</em>
-</div>
+*Sugarcane being transported to the mill — where bagasse-fired boilers generate flue gas waste*
 
 The sugar industry is one of the most energy-intensive sectors, where boilers consume massive amounts of **Bagasse** (biomass) to generate high-pressure steam. Traditionally, a significant portion of this thermal energy is lost to the atmosphere through **Flue Gases** exiting at high temperatures (160°C – 250°C).
 
