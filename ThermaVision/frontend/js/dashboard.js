@@ -37,9 +37,10 @@
 
     function fmtCurrency(n) {
         if (n === undefined || n === null) return '—';
-        if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
-        if (n >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
-        return '$' + n.toFixed(2);
+        if (n >= 1e7) return '₹' + (n / 1e7).toFixed(2) + ' Cr';
+        if (n >= 1e5) return '₹' + (n / 1e5).toFixed(2) + ' L';
+        if (n >= 1e3) return '₹' + (n / 1e3).toFixed(1) + ' K';
+        return '₹' + n.toFixed(2);
     }
 
     function fmtInt(n) {
@@ -298,9 +299,9 @@
         const roi5yr = ((annualSavings * 5 - installCost) / installCost) * 100;
 
         // Update display values
-        document.getElementById('sens-fuel-value').textContent = `$${fuelCost.toFixed(2)}/kg`;
+        document.getElementById('sens-fuel-value').textContent = `₹${fuelCost.toFixed(2)}/kg`;
         document.getElementById('sens-hours-value').textContent = `${hours.toLocaleString()} hrs`;
-        document.getElementById('sens-cost-value').textContent = `$${installCost.toLocaleString()}`;
+        document.getElementById('sens-cost-value').textContent = `₹${installCost.toLocaleString()}`;
 
         // Update results
         document.getElementById('sens-savings').textContent = fmtCurrency(annualSavings);
