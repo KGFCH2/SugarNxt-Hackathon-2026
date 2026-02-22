@@ -225,30 +225,3 @@ async def generate_report(req: AnalysisRequest):
     )
 
 
-@router.post("/chat", response_model=ChatResponse)
-async def chat(req: ChatRequest):
-    """
-    Chatbot endpoint using Groq API.
-    """
-    api_key = os.getenv("GROQ_API_KEY")
-    if not api_key or api_key == "your_groq_api_key_here":
-        # Fallback if no API key is provided
-        return ChatResponse(response="I'm here to help with ThermaVision, but I need a valid Groq API key to give you AI-powered answers. Please add your key to the .env file!")
-
-    try:
-        client = Groq(api_key=api_key)
-        completion = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are 'ThermaBot', the AI assistant for ThermaVision. You are an expert in industrial waste heat recovery, thermodynamics, and the sugar industry. You help users understand how to convert flue gas waste into process energy. Keep answers professional, concise, and technically accurate."
-                },
-                {"role": "user", "content": req.message}
-            ],
-            temperature=0.7,
-            max_tokens=500,
-        )
-        return ChatResponse(response=completion.choices[0].message.content)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Chatbot error: {str(e)}")
