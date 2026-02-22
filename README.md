@@ -60,9 +60,11 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 ## 🔥 ThermaVision — Our PS-5 Solution
 
 ### 🎯 Objective
+
 Capture thermal energy potential from boiler flue gas and convert it into usable process energy (via pre-heating raw juice) while maximizing operational safety and sustainability.
 
 ### ✨ Key Features
+
 - **Thermodynamic Engine**: Precise energy-balance calculations using industrial-grade physics.
 - **AI Insight Generator**: Automatically creates boardroom-ready executive summaries.
 - **Interactive Dashboards**: 3D visualizations and real-time ROI sensitivity analysis.
@@ -82,34 +84,64 @@ We have built a robust **Decoupled Full-Stack** solution:
 ## ▶️ Quick Start — Run ThermaVision Locally
 
 ### Prerequisites
-- Python 3.9+
-- Modern Web Browser (Chrome/Edge/Firefox)
+
+- **Python 3.9+** — ([Download here](https://www.python.org/downloads/))
+- **pip** — Comes bundled with Python
+- Modern Web Browser (Chrome / Edge / Firefox)
 
 ### Step 1: Clone & Setup Environment
+
 ```bash
+# Clone the repository (or download ZIP)
+git clone <repo-url>
+cd SugarNxt_Hackathon_2026/ThermaVision
+
 # Create and activate virtual environment
-python -m venv .venv
-# On Windows:
-.\.venv\Scripts\Activate.ps1
-# On Mac/Linux:
-source .venv/bin/activate
+cd backend
+python -m venv venv
+
+# Activate:
+# Windows (PowerShell):
+.\venv\Scripts\activate
+# Windows (CMD):
+venv\Scripts\activate.bat
+# Mac / Linux:
+source venv/bin/activate
 ```
 
 ### Step 2: Install Dependencies
+
 ```bash
-pip install -r ThermaVision/backend/requirements.txt
+# Inside the backend directory with venv active
+pip install -r requirements.txt
 ```
 
 ### Step 3: Launch Backend Server
-```bash
-python ThermaVision/backend/run.py
-```
-*API will be available at: `http://localhost:8000`*
 
-### Step 4: Open Frontend
-You can open the following files directly in your browser or use a live server:
-- `ThermaVision/frontend/index.html` (Landing Page)
-- `ThermaVision/frontend/simulation.html` (Data Entry)
+```bash
+# From the backend directory
+python run.py
+```
+
+You should see: `INFO: Uvicorn running on http://0.0.0.0:8000`
+
+### Step 4: Launch Frontend (New Terminal)
+
+```bash
+# Open a NEW terminal, navigate to the frontend folder
+cd SugarNxt_Hackathon_2026/ThermaVision/frontend
+
+# Start a simple HTTP server
+python -m http.server 3000
+```
+
+You should see: `Serving HTTP on :: port 3000 ...`
+
+### Step 5: Open in Browser
+
+Go to **<http://localhost:3000>** — The ThermaVision portal is now live!
+
+> **Important:** Keep both terminals running. The frontend (port 3000) sends API requests to the backend (port 8000).
 
 ---
 
