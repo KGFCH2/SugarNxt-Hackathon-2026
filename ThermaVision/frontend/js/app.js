@@ -6,70 +6,11 @@
 (function () {
     'use strict';
 
-    // ── Three.js Animated Background ──────────────────────
+    // ── Three.js Animated Background (Disabled per user request) ──────
     function initThreeJS() {
         const canvas = document.querySelector('#three-canvas');
-        if (!canvas) return;
-
-        try {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 1500;
-            const posArray = new Float32Array(particlesCount * 3);
-
-            for (let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 10;
-            }
-
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.005,
-                color: '#ff8c00',
-                transparent: true,
-                opacity: 0.8,
-                blending: THREE.AdditiveBlending
-            });
-
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particlesMesh);
-            camera.position.z = 2;
-
-            let mouseX = 0;
-            let mouseY = 0;
-
-            document.addEventListener('mousemove', (event) => {
-                mouseX = event.clientX;
-                mouseY = event.clientY;
-            });
-
-            const animate = () => {
-                requestAnimationFrame(animate);
-                particlesMesh.rotation.y += 0.001;
-                const targetX = (mouseX / window.innerWidth - 0.5) * 0.5;
-                const targetY = (mouseY / window.innerHeight - 0.5) * 0.5;
-                particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.05;
-                particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.05;
-                renderer.render(scene, camera);
-            };
-
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        } catch (e) {
-            console.warn("WebGL not supported or failed to initialize:", e);
-            canvas.style.display = 'none';
-        }
+        if (canvas) canvas.style.display = 'none';
+        return;
     }
 
     // ── Robust Hero Slider (crossfade — always one image visible) ──
