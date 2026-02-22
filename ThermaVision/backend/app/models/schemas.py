@@ -36,7 +36,7 @@ class AnalysisRequest(BaseModel):
     )
     fuel_cost: float = Field(
         ..., gt=0, lt=1000,
-        description="Fuel cost ($/kg or $/m³)"
+        description="Fuel cost (₹/kg or ₹/m³)"
     )
     operating_hours: float = Field(
         ..., gt=0, le=8760,
@@ -44,7 +44,7 @@ class AnalysisRequest(BaseModel):
     )
     installation_cost: float = Field(
         ..., gt=0,
-        description="Estimated installation cost ($)"
+        description="Estimated installation cost (₹)"
     )
     steam_demand: Optional[float] = Field(
         default=5000,
