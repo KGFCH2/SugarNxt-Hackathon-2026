@@ -61,14 +61,22 @@ ThermaVision follows a modern **Decoupled Full-Stack Architecture**:
 
 ---
 
-## 🔗 How it Works: The Connection
+## 🔗 How it Works: The Full-Stack Significance
 
-1.  **User Input**: User fills the form in `simulation.html`.
-2.  **Frontend Request**: `simulation.js` sends JSON to the backend.
-3.  **Backend Calculation**: The engine processes thermodynamics, ROI, and AI insights.
-4.  **Backend Response**: FastAPI returns a comprehensive JSON result set.
-5.  **Data Storage**: Results are saved in `sessionStorage`.
-6.  **UI Update**: `dashboard.html` retrieves data and renders visualizations instantly.
+ThermaVision is not just a visual tool; it is a **Mission-Critical Industrial Engine**. Here is how the frontend and backend collaborate to deliver technical value:
+
+1.  **User Input (Frontend)**: The user enters specific mill parameters (e.g., Flue Gas Temp, Juice Flow Rate) in `simulation.html`.
+2.  **Frontend Request**: `simulation.js` packages this data into a JSON payload and sends it via an asynchronous `POST` request to the FastAPI backend.
+3.  **Thermodynamic Processing (Backend)**: 
+    - The backend engine (`calculator.py`) applies the first law of thermodynamics ($Q = \dot{m} \times C_p \times \Delta T$) to convert raw temperatures into thermal energy (kW).
+    - It then calculates equivalent steam savings, which directly translates to **Bagasse fuel reduction**.
+4.  **AI Technical Consulting (Backend + Groq)**:
+    - The server securely proxies data to the **Groq Llama-3 AI**.
+    - The AI analyzes the calculated metrics and provides a boardroom-ready executive summary, recommending specific equipment (e.g., Shell & Tube vs. Plate Heat Exchangers).
+5.  **Multi-Scenario Generation**: The backend runs optimization loops (`optimizer.py`) to generate "Base", "Improved", and "Optimized" versions of the recovery strategy.
+6.  **Secure Persistence**: By handling logic on the backend, we keep sensitive industrial math and **API Keys** secured away from the client-side browser.
+7.  **Data Visualization (Frontend)**: The frontend receives the calculated JSON, stores it in `sessionStorage`, and uses **Chart.js** and **Lucide** to turn raw numbers into actionable charts and metrics.
+8.  **Professional Reporting**: The backend generates a timestamped PDF technical report using the `FPDF2` library, which is streamed back to the user for implementation planning.
 
 ---
 
