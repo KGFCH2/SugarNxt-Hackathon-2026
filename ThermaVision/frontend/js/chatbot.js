@@ -45,7 +45,18 @@
                     <p>AI Energy Consultant</p>
                 </div>
             </div>
-            <div class="chatbot-close" style="cursor:pointer;"><i data-lucide="x"></i></div>
+            <div class="chatbot-header-actions">
+                <button class="chatbot-action-btn" id="chat-copy" title="Copy Chat">
+                    <i data-lucide="copy"></i>
+                </button>
+                <button class="chatbot-action-btn" id="chat-export" title="Export Chat">
+                    <i data-lucide="download"></i>
+                </button>
+                <button class="chatbot-action-btn" id="chat-delete" title="Clear Chat">
+                    <i data-lucide="trash-2"></i>
+                </button>
+                <div class="chatbot-close" style="cursor:pointer;"><i data-lucide="x"></i></div>
+            </div>
         </div>
         <div class="chatbot-messages" id="chat-messages">
             <div class="chat-message bot">
@@ -204,9 +215,59 @@
         if (loading) loading.remove();
     }
 
+    // --- Action Button Logic ---
+
+    function copyChat() {
+        const messages = Array.from(messagesContainer.querySelectorAll('.chat-message'))
+            .map(msg => `${msg.classList.contains('user') ? 'You' : 'ThermaBot'}: ${msg.innerText}`)
+            .join('\n\n');
+
+        navigator.clipboard.writeText(messages).then(() => {
+            const copyBtn = document.getElementById('chat-copy');
+            const originalIcon = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i data-lucide="check"></i>';
+            if (window.lucide) window.lucide.createIcons();
+
+            setTimeout(() => {
+                copyBtn.innerHTML = originalIcon;
+                if (window.lucide) window.lucide.createIcons();
+            }, 2000);
+        });
+    }
+
+    function exportChat() {
+        const messages = Array.from(messagesContainer.querySelectorAll('.chat-message'))
+            .map(msg => `${msg.classList.contains('user') ? 'You' : 'ThermaBot'}: ${msg.innerText}`)
+            .join('\n\n');
+
+        const blob = new Blob([`--- ThermaVision Chat Export ---\nDate: ${new Date().toLocaleString()}\n\n${messages}`], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `thermavision_chat_${Date.now()}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function clearChat() {
+        if (confirm('Are you sure you want to clear the entire chat history?')) {
+            messagesContainer.innerHTML = `
+                <div class="chat-message bot">
+                    Hello! I'm ThermaBot. How can I help you optimize your sugar mill's energy recovery today?
+                </div>
+            `;
+        }
+    }
+
     sendBtn.addEventListener('click', handleSend);
     inputField.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') handleSend();
     });
+
+    document.getElementById('chat-copy').addEventListener('click', copyChat);
+    document.getElementById('chat-export').addEventListener('click', exportChat);
+    document.getElementById('chat-delete').addEventListener('click', clearChat);
 
 })();
