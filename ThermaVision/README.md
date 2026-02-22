@@ -180,12 +180,10 @@ python run.py
 
 You should see output like:
 
-```
-INFO:     Uvicorn running on http://0.0.0.0:8000
+INFO:     Uvicorn running on http://127.0.0.1:8080
 INFO:     Application startup complete.
-```
 
-**Backend is now live at:** `http://localhost:8000`
+**Backend is now live at:** `http://127.0.0.1:8080`
 
 ### Step 2 — Start the Frontend Server
 
@@ -193,7 +191,7 @@ Open a **second terminal** (keep the backend running) and run:
 
 ```bash
 cd ThermaVision/frontend
-python -m http.server 3000
+python -m http.server 3000 --bind 127.0.0.1
 ```
 
 You should see:
@@ -202,17 +200,17 @@ You should see:
 Serving HTTP on :: port 3000 ...
 ```
 
-**Frontend is now live at:** `http://localhost:3000`
+**Frontend is now live at:** `http://127.0.0.1:3000`
 
 ### Step 3 — Use the Application
 
-1. Open your browser and go to **<http://localhost:3000>**
+1. Open your browser and go to **<http://127.0.0.1:3000>**
 2. You'll land on the **Home** page with a 3D particle background and image carousel
 3. Click **Launch Simulation** to enter plant parameters
 4. After submitting, the app calls the backend API and redirects you to the **Dashboard**
 5. View charts, metrics, AI insights, and download the PDF report
 
-> **Tip:** Both terminals must stay open while using the app. The frontend talks to the backend via `http://localhost:8000`.
+> **Tip:** Both terminals must stay open while using the app. The frontend talks to the backend via `http://127.0.0.1:8080`.
 
 ---
 
@@ -292,7 +290,7 @@ After deploying the backend, update the API base URL in the frontend JS files:
 
 ```javascript
 // In js/simulation.js and js/dashboard.js, change:
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'http://127.0.0.1:8080';
 // To your deployed backend URL:
 const API_BASE = 'https://thermavision-api.onrender.com';
 ```
@@ -312,6 +310,12 @@ CORS is already pre-configured in `backend/app/main.py` to allow all origins. Fo
 - **3D Particle Background** — Interactive Three.js particle system that responds to mouse movement
 - **Glassmorphism Design** — Modern frosted-glass card effects throughout the interface
 - **Responsive Layout** — Optimized for desktop, tablet, and mobile devices
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](../LICENSE) file for details.
 
 ---
 *Developed for the SugarNxt Hackathon 2026. Converting industrial waste into process energy.*
