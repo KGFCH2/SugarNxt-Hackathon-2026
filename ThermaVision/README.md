@@ -1,7 +1,8 @@
 # 🔥 ThermaVision — Smart Flue Gas Waste Heat Recovery Intelligence Portal
 
-### Capturing waste heat from industrial flue gas to power sugar mill operations
-#### SugarNxt Hackathon 2026 Entry
+## Capturing waste heat from industrial flue gas to power sugar mill operations
+
+### SugarNxt Hackathon 2026 Entry
 
 AI-powered industrial energy optimization platform for waste heat analysis, CO₂ reduction, and ROI calculation.
 
@@ -15,11 +16,11 @@ AI-powered industrial energy optimization platform for waste heat analysis, CO�
 - [✨ Key Features](#key-features)
 - [🏗️ Technical Architecture](#technical-architecture)
 - [📂 Folder Structure](#folder-structure)
-- [⚙️ Installation & Setup](#installation--setup)
+- [⚙️ Installation & Setup](#installation-setup)
 - [🚀 Running the Application](#running-the-application)
 - [📖 Technical Instructions](#technical-instructions)
 - [🌐 API Documentation](#api-documentation)
-- [🚢 Deployment](#deployment-guide)
+- [🚢 Deployment Guide](#deployment-guide)
 - [🎨 UI Features](#ui-features)
 
 ---
@@ -296,4 +297,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](../LICENS
 
 ---
 
-*Developed for the SugarNxt Hackathon 2026. Converting industrial waste into process energy.*
+_Developed for the SugarNxt Hackathon 2026. Converting industrial waste into process energy._
