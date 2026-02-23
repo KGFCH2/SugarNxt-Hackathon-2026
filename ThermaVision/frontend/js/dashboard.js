@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    const API_BASE = 'http://127.0.0.1:8080';
+    const API_BASE = 'https://thermavision.onrender.com';
 
     // ── Load data from sessionStorage ─────────────────────
     const rawResults = sessionStorage.getItem('whr_results');
