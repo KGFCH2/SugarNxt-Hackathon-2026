@@ -22,15 +22,15 @@
 
 ---
 
-## Overview
+## ✨ Overview
 
-The **ISMA SugarNXT Hackathon 2026** is an industry-driven initiative accelerating technology-led transformation across the Indian sugar ecosystem.
+The **ISMA SugarNXT Hackathon 2026** is an industry-driven initiative accelerating technology-led transformation across the Indian sugar ecosystem. 🏭
 
 Our submission, **ThermaVision**, addresses **PS-5**: *Converting Flue Gas Waste into Process Energy ♻️*
 
-*ThermaVision* is a high-fidelity full-stack prototype designed to model, analyze, and optimize recovery of usable process energy from flue-gas streams—helping mills improve efficiency, sustainability, and thermodynamic ROI.
+*ThermaVision* is a high-fidelity full-stack prototype designed to model, analyze, and optimize recovery of usable process energy from flue-gas streams—helping mills improve efficiency, sustainability, and thermodynamic ROI. 📈
 
----
+👉 **[Explore the full ThermaVision project details here](./ThermaVision/README.md)** 🔗
 
 ## About ISMA
 
@@ -53,20 +53,20 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 
 ---
 
-## Our PS-5 Solution
+## 🔥 Our PS-5 Solution
 
-### Flue gas emissions from industrial boilers — a massive untapped energy source
+### Flue gas emissions from industrial boilers — a massive untapped energy source 💨
 
-### Objective
+### 🎯 Objective
 
-Capture thermal energy potential from boiler flue gas and convert it into usable process energy (via pre-heating raw juice) while maximizing operational safety and sustainability.
+Capture thermal energy potential from boiler flue gas and convert it into usable process energy (via pre-heating raw juice) while maximizing operational safety and sustainability. 🛡️
 
-### Key Features
+### ✨ Key Features
 
-- **Thermodynamic Engine**: Precise energy-balance calculations using industrial-grade physics.
-- **AI Insight Generator**: Automatically creates boardroom-ready executive summaries.
-- **Interactive Dashboards**: 3D visualizations and real-time ROI sensitivity analysis.
-- **Technical Reports**: Professional PDF generation for engineering stakeholders.
+- **⚙️ Thermodynamic Engine**: Precise energy-balance calculations using industrial-grade physics.
+- **🤖 AI Insight Generator**: Automatically creates boardroom-ready executive summaries.
+- **📊 Interactive Dashboards**: 3D visualizations and real-time ROI sensitivity analysis.
+- **📄 Technical Reports**: Professional PDF generation for engineering stakeholders.
 
 ---
 
