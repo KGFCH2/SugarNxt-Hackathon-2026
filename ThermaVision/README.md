@@ -1,32 +1,33 @@
 # 🚀 ThermaVision — Smart Flue Gas Waste Heat Recovery Intelligence Portal
 
-## Capturing waste heat from industrial flue gas to power sugar mill operations
+## ♻️ Capturing waste heat from industrial flue gas to power sugar mill operations
 
-### SugarNxt Hackathon 2026 Entry
+### 🏆 SugarNxt Hackathon 2026 Entry
 
 AI-powered industrial energy optimization platform for waste heat analysis, CO₂ reduction, and ROI calculation.
 
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
-- [👥 Meet the Team](#meet-the-team)
-- [🎯 Project Objective](#project-objective)
-- [🔴 Problem Statement](#problem-statement)
-- [✨ Key Features](#key-features)
-- [🏗️ Technical Architecture](#technical-architecture)
-- [📂 Folder Structure](#folder-structure)
-- [⚙️ Installation & Setup](#installation-and-setup)
-- [🚀 Running the Application](#running-the-application)
-- [📖 Technical Instructions](#technical-instructions)
-- [🌐 API Documentation](#api-documentation)
-- [🚢 Deployment Guide](#deployment-guide)
-- [🎨 UI Features](#ui-features)
-- [📑 Submission Details](#submission-details)
+- [👥 Meet the Team](#team-anchor)
+- [🎯 Project Objective](#objective-anchor)
+- [🔴 Problem Statement](#problem-anchor)
+- [✨ Key Features](#features-anchor)
+- [🏗️ Technical Architecture](#architecture-anchor)
+- [📂 Folder Structure](#structure-anchor)
+- [⚙️ Installation & Setup](#setup-anchor)
+- [🚀 Running the Application](#running-anchor)
+- [📖 Technical Instructions](#instructions-anchor)
+- [🌐 API Documentation](#api-anchor)
+- [🚢 Deployment Guide](#deployment-anchor)
+- [🎨 UI Features](#ui-anchor)
+- [📑 Submission Details](#submission-anchor)
 
 ---
 
-## Meet the Team
+<a id="team-anchor"></a>
+## 👥 Meet the Team
 
 I am proud to present the engineering team behind **ThermaVision**, participating in the **SugarNxt Hackathon 2026**:
 
@@ -37,7 +38,8 @@ I am proud to present the engineering team behind **ThermaVision**, participatin
 
 ---
 
-## Project Objective
+<a id="objective-anchor"></a>
+## 🎯 Project Objective
 
 The sugar industry generates massive amounts of flue gas as waste. **ThermaVision** is designed to capture this lost energy. By installing a waste heat recovery unit (WHRU), plants can pre-heat raw juice using flue gases, directly reducing the steam demand from the boiler.
 
@@ -49,7 +51,8 @@ My project provides a high-fidelity simulation and decision-support tool to:
 
 ---
 
-## Problem Statement
+<a id="problem-anchor"></a>
+## 🔴 Problem Statement
 
 _Sugarcane being transported to the mill — where bagasse-fired boilers generate flue gas waste._
 
@@ -66,7 +69,8 @@ The sugar industry is one of the most energy-intensive sectors, where boilers co
 
 ---
 
-## Key Features
+<a id="features-anchor"></a>
+## ✨ Key Features
 
 - **3D Intelligence UI**: Modern dashboard with Three.js visualizations and Lucide iconography.
 - **Thermodynamic Engine**: Precise energy-balance calculations for industrial scale ($Q = \dot{m} \times C_p \times \Delta T$).
@@ -77,7 +81,8 @@ The sugar industry is one of the most energy-intensive sectors, where boilers co
 
 ---
 
-## Technical Architecture
+<a id="architecture-anchor"></a>
+## 🏗️ Technical Architecture
 
 I have built a robust **Full-Stack** solution where both ends share equal engineering weight:
 
@@ -86,7 +91,8 @@ I have built a robust **Full-Stack** solution where both ends share equal engine
 
 ---
 
-## Folder Structure
+<a id="structure-anchor"></a>
+## 📂 Folder Structure
 
 ```bash
 ThermaVision/
@@ -110,9 +116,11 @@ ThermaVision/
 
 ---
 
-## Installation and Setup
+<a id="setup-anchor"></a>
+## ⚙️ Installation & Setup
 
-### Prerequisites
+<a id="prerequisites-anchor"></a>
+### 📋 Prerequisites
 
 Before you begin, make sure the following are installed on your machine:
 
@@ -121,14 +129,16 @@ Before you begin, make sure the following are installed on your machine:
 - **Git** — [Download Git](https://git-scm.com/downloads)
 - A modern web browser (Chrome, Edge, Firefox)
 
-### 1. Clone the Repository
+<a id="clone-anchor"></a>
+### 📦 1. Clone the Repository
 
 ```bash
 git clone <repo-url>
 cd SugarNxt_Hackathon_2026/ThermaVision
 ```
 
-### 2. Backend Setup
+<a id="backend-setup-anchor"></a>
+### ⚙️ 2. Backend Setup
 
 ```bash
 cd backend
@@ -152,9 +162,11 @@ pip install -r requirements.txt
 
 ---
 
-## Running the Application
+<a id="running-anchor"></a>
+## 🚀 Running the Application
 
-### Step 1 — Start the Backend Server
+<a id="run-backend-server-anchor"></a>
+### 🖥️ Step 1 — Start the Backend Server
 
 Open a terminal and run:
 
@@ -172,7 +184,8 @@ INFO:     Application startup complete.
 
 **Backend is now live at:** `https://thermavision.onrender.com`
 
-### Step 2 — Start the Frontend Server
+<a id="run-frontend-server-anchor"></a>
+### 🌐 Step 2 — Start the Frontend Server
 
 Open a **second terminal** (keep the backend running) and run:
 
@@ -189,7 +202,8 @@ Serving HTTP on :: port 3000 ...
 
 **Frontend is now live at:** [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
-### Step 3 — Use the Application
+<a id="use-app-instr-anchor"></a>
+### 🖱️ Step 3 — Use the Application
 
 1. Open your browser and go to [http://127.0.0.1:3000](http://127.0.0.1:3000)
 2. You'll land on the **Home** page with a 3D particle background and image carousel
@@ -201,7 +215,8 @@ Serving HTTP on :: port 3000 ...
 
 ---
 
-## Technical Instructions
+<a id="instructions-anchor"></a>
+## 📖 Technical Instructions
 
 📖 **Engineering Guide**
 
@@ -211,7 +226,8 @@ For a file-by-file explanation, backend-frontend connection logic, and a deep di
 
 ---
 
-## Submission Details
+<a id="submission-anchor"></a>
+## 📑 Submission Details
 
 📑 **Hackathon Presentation**
 
@@ -221,9 +237,10 @@ For hackathon-specific info, including the **Mermaid diagrams**, competitive ana
 
 ---
 
-## API Documentation
+<a id="api-anchor"></a>
+## 🌐 API Documentation
 
-### `POST /analyze`
+### 📡 `POST /analyze`
 
 Performs full thermodynamic and financial analysis.
 
@@ -242,17 +259,19 @@ Performs full thermodynamic and financial analysis.
 }
 ```
 
-### `POST /report`
+### 📄 `POST /report`
 
 Generates and downloads a timestamped PDF technical report based on the analysis data.
 
 ---
 
-## Deployment Guide
+<a id="deployment-anchor"></a>
+## 🚢 Deployment Guide
 
 Deploying ThermaVision to the cloud is straightforward since the backend and frontend are decoupled.
 
-### Backend → Render (Free Tier)
+<a id="deploy-backend-anchor"></a>
+### 🖥️ Backend → Render (Free Tier)
 
 1. Push your code to a **GitHub** repository
 1. Go to [render.com](https://render.com) → **New Web Service**
@@ -262,7 +281,8 @@ Deploying ThermaVision to the cloud is straightforward since the backend and fro
    - **Start Command:** `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 1. Deploy — Render gives you a public URL: `https://thermavision.onrender.com`
 
-### Frontend → Netlify or GitHub Pages
+<a id="deploy-frontend-anchor"></a>
+### 🌐 Frontend → Netlify or GitHub Pages
 
 **Option A — Netlify (Recommended):**
 
@@ -277,7 +297,8 @@ Deploying ThermaVision to the cloud is straightforward since the backend and fro
 1. In your GitHub repo settings → **Pages** → set source to the `frontend` folder
 2. Your site will be live at `https://<username>.github.io/<repo>/`
 
-### Post-Deployment: Update API URL
+<a id="update-api-url-anchor"></a>
+### ⚙️ Post-Deployment: Update API URL
 
 After deploying the backend, update the API base URL in the frontend JS files:
 
@@ -288,13 +309,15 @@ const API_BASE = 'http://127.0.0.1:8080';
 const API_BASE = 'https://thermavision.onrender.com';
 ```
 
-### CORS Configuration
+<a id="cors-config-anchor"></a>
+### 🛡️ CORS Configuration
 
 CORS is already pre-configured in `backend/app/main.py` to allow all origins. For production, you can restrict it to your frontend domain.
 
 ---
 
-## UI Features
+<a id="ui-anchor"></a>
+## 🎨 UI Features
 
 - **Crossfade Image Carousel** — Smooth background transitions with always-visible images (no blank frames)
 - **Scroll In/Out Animations** — Elements animate in when scrolling down and gracefully animate out when scrolling up
@@ -304,7 +327,8 @@ CORS is already pre-configured in `backend/app/main.py` to allow all origins. Fo
 
 ---
 
-## License
+<a id="license-anchor"></a>
+## ⚖️ License
 
 This project is licensed under the **MIT License** - see the [LICENSE](../LICENSE) file for details.
 
