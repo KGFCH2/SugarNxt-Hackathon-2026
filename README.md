@@ -33,12 +33,16 @@ Our submission, **ThermaVision**, addresses **PS-5**: *Converting Flue Gas Waste
 
 👉 **[Explore the full ThermaVision project details here](./ThermaVision/README.md)** 🔗
 
+---
+
 <a id="about-isma-anchor"></a>
 ## 🏛️ About ISMA
 
 The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarcane sector for over nine decades. ISMA works closely with policymakers, industry leaders, and farmers to modernize operations and drive sustainable growth.
 
 🌐 **Website:** [https://ismaindia.org](https://ismaindia.org)
+
+---
 
 ---
 
@@ -53,6 +57,8 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 - **PS-6** — Precision AI for Cane Quality Assessment 🧠
 - **PS-7** — Smarter Cooling for Maximum Sugar Recovery ❄️
 - **PS-8** — Transforming Sugar By-Products into High-Value Future Fuels 🔋
+
+---
 
 ---
 
@@ -74,7 +80,8 @@ Capture thermal energy potential from boiler flue gas and convert it into usable
 
 ---
 
-<a id="architecture-anchor"></a>
+---
+
 <a id="architecture-anchor"></a>
 ## 🏗️ Technical Architecture
 
@@ -85,18 +92,17 @@ We have built a robust **Decoupled Full-Stack** solution:
 
 ---
 
-<a id="quick-start-anchor"></a>
+---
+
 <a id="quick-start-anchor"></a>
 ## ▶️ Quick Start
 
-<a id="prerequisites-anchor"></a>
 ### 📋 Prerequisites
 
 - **Python 3.9+** — [Download here](https://www.python.org/downloads/)
 - **pip** — Comes bundled with Python
 - Modern Web Browser (Chrome / Edge / Firefox)
 
-<a id="step-1-anchor"></a>
 ### ⚙️ Step 1: Clone & Setup Environment
 
 ```bash
@@ -117,7 +123,6 @@ venv\Scripts\activate.bat
 source venv/bin/activate
 ```
 
-<a id="step-2-anchor"></a>
 ### 📦 Step 2: Install Dependencies
 
 ```bash
@@ -125,7 +130,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-<a id="step-3-anchor"></a>
 ### 🖥️ Step 3: Launch Backend Server
 
 ```bash
@@ -135,7 +139,6 @@ python run.py
 
 You should see: `INFO: Uvicorn running on http://127.0.0.1:8080`
 
-<a id="step-4-anchor"></a>
 ### 🌐 Step 4: Launch Frontend (New Terminal)
 
 ```bash
@@ -148,7 +151,6 @@ python -m http.server 3000 --bind 127.0.0.1
 
 You should see: `Serving HTTP on :: port 3000 ...`
 
-<a id="step-5-anchor"></a>
 ### 🖱️ Step 5: Open in Browser
 
 Go to [http://localhost:3000](http://localhost:3000) — The ThermaVision portal is now live!
@@ -157,7 +159,8 @@ Go to [http://localhost:3000](http://localhost:3000) — The ThermaVision portal
 
 ---
 
-<a id="team-anchor"></a>
+---
+
 <a id="team-anchor"></a>
 ## 👥 Team Four-0-Four
 
@@ -172,7 +175,8 @@ We are a dedicated group of engineers passionate about industrial sustainability
 
 ---
 
-<a id="structure-anchor"></a>
+---
+
 <a id="structure-anchor"></a>
 ## 📂 Project Structure
 
@@ -194,7 +198,8 @@ ThermaVision/
 
 ---
 
-<a id="roadmap-anchor"></a>
+---
+
 <a id="roadmap-anchor"></a>
 ## 🤝 Future Roadmap
 
@@ -205,7 +210,6 @@ ThermaVision/
 
 ---
 
-<a id="license-anchor"></a>
 ## ⚖️ License & Credits
 
 Developed for **ISMA SugarNXT Hackathon 2026** by **Team Four-0-Four**.

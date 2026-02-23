@@ -45,7 +45,6 @@ ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend 
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-<a id="connect-steps-anchor"></a>
 ### 🔗 How They Connect — Step by Step
 
 1. **User opens `index.html`** in the browser (served on `localhost:3000`). This is the landing page with project overview and a call-to-action to start the simulation
@@ -71,7 +70,6 @@ ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend 
 
 The frontend is a collection of static HTML, CSS, and JavaScript files served via a simple HTTP server. There is no build step or bundler — everything runs directly in the browser.
 
-<a id="html-pages-anchor"></a>
 #### 📄 HTML Pages
 
 | File | Purpose |
@@ -80,7 +78,6 @@ The frontend is a collection of static HTML, CSS, and JavaScript files served vi
 | `simulation.html` | Configuration form where users enter plant parameters. Validates inputs before sending to the backend API |
 | `dashboard.html` | Results page that displays all analysis data — metric cards, charts, AI insights, scenario comparison, sensitivity analysis, and climate impact projections |
 
-<a id="css-styling-anchor"></a>
 #### 🎨 CSS Styling (`/css`)
 
 | File | Purpose |
@@ -88,7 +85,6 @@ The frontend is a collection of static HTML, CSS, and JavaScript files served vi
 | `styles.css` | The complete design system. Contains CSS variables, glassmorphism effects, responsive layouts, scroll animations, hero slider styles, card hover effects, and all component styling |
 | `chatbot.css` | Styles for the AI chatbot overlay component |
 
-<a id="js-logic-anchor"></a>
 #### ⚡ JavaScript Logic (`/js`)
 
 | File | Purpose | Key Connection |
@@ -104,7 +100,6 @@ The frontend is a collection of static HTML, CSS, and JavaScript files served vi
 
 The backend is a Python FastAPI application that serves as the computation engine. It never serves HTML — it only accepts JSON requests and returns JSON responses.
 
-<a id="server-setup-anchor"></a>
 #### 🖥️ Server Setup
 
 | File | Purpose |
@@ -114,7 +109,6 @@ The backend is a Python FastAPI application that serves as the computation engin
 | `app/__init__.py` | Package initializer |
 | `requirements.txt` | Python dependencies: `fastapi`, `uvicorn`, `fpdf2`, `pydantic`, `groq`, `python-dotenv` |
 
-<a id="api-layer-anchor"></a>
 #### 📡 API Layer (`/app/api`)
 
 | File | Purpose |
@@ -133,7 +127,6 @@ These are the core computation modules that run the industrial thermodynamic log
 | `insights.py` | Connects to the **Groq Llama-3 AI API** to generate an executive summary and equipment recommendations based on the calculated metrics | API key is stored server-side in `.env` — never exposed to the browser |
 | `__init__.py` | Marks the engine directory as a Python package, allowing imports between modules | - |
 
-<a id="data-integration-anchor"></a>
 #### 📊 Data & Integration (`/backend/app`)
 
 | File | Purpose |
@@ -144,7 +137,6 @@ These are the core computation modules that run the industrial thermodynamic log
 | `.env.example` | Template file showing which environment variables are needed for the project to work |
 | `__init__.py` | Top-level package initializer for the FastAPI application |
 
-<a id="frontend-assets-anchor"></a>
 #### 🖼️ Frontend Assets (`/frontend/public`)
 
 | File | Purpose |
@@ -156,16 +148,14 @@ These are the core computation modules that run the industrial thermodynamic log
 
 ## 🔗 The Frontend-Backend Connection in Detail
 
-<a id="why-two-servers-anchor"></a>
 ### ❓ Why Two Servers?
 
 The frontend runs on `127.0.0.1:3000` (a simple Python HTTP server) and the backend runs on `127.0.0.1:8080` (FastAPI/Uvicorn). They are separate because:
 
--   **Security**: The backend holds the Groq API key and sensitive calculation logic — these never reach the browser 🔒
--   **Separation of concerns**: The frontend handles presentation, the backend handles computation 🧩
--   **CORS**: The backend explicitly allows requests from any origin (or specific frontend domains) via FastAPI CORS middleware in `main.py` 🌐
+- **Security**: The backend holds the Groq API key and sensitive calculation logic — these never reach the browser 🔒
+- **Separation of concerns**: The frontend handles presentation, the backend handles computation 🧩
+- **CORS**: The backend explicitly allows requests from any origin (or specific frontend domains) via FastAPI CORS middleware in `main.py` 🌐
 
-<a id="data-flow-anchor"></a>
 ### 🌊 The Data Flow
 
 ```text
@@ -211,14 +201,13 @@ dashboard.js → JSON.parse(sessionStorage.getItem("analysisResult"))
 Renders charts, metrics, tables, AI insights
 ```
 
-<a id="session-anchor"></a>
 ### 🌉 How sessionStorage Bridges the Pages
 
 Since `simulation.html` and `dashboard.html` are separate pages (full page navigation, not a SPA), the data from the API response needs to persist across the page transition. We use `sessionStorage` because:
 
--   It persists across page navigations within the same tab
--   It automatically clears when the tab is closed (no stale data)
--   It avoids passing large JSON payloads through URL parameters
+- It persists across page navigations within the same tab
+- It automatically clears when the tab is closed (no stale data)
+- It avoids passing large JSON payloads through URL parameters
 
 ---
 
@@ -241,13 +230,11 @@ Industrial boilers in sugar mills emit high-temperature flue gases that escape t
 
 ## 🚀 How to Run the Project
 
-<a id="prerequisites-anchor"></a>
 ### 📋 Prerequisites
 
 - Python 3.8+ installed
 - A Groq API key (optional — for AI insights)
 
-<a id="run-backend-anchor"></a>
 ### ⚙️ Step 1 — Start the Backend
 
 ```bash
@@ -258,7 +245,6 @@ python run.py
 
 Backend starts locally at `http://127.0.0.1:8080` or is available at `https://thermavision.onrender.com`
 
-<a id="run-frontend-anchor"></a>
 ### 🌐 Step 2 — Start the Frontend
 
 ```bash
@@ -268,7 +254,6 @@ python -m http.server 3000 --bind 127.0.0.1
 
 Frontend starts at `http://127.0.0.1:3000`
 
-<a id="use-app-anchor"></a>
 ### 🖱️ Step 3 — Use the App
 
 1. Open `http://127.0.0.1:3000` in your browser
