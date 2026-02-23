@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    const API_BASE = 'http://127.0.0.1:8080';
+    const API_BASE = 'https://thermavision.onrender.com';
 
     const form = document.getElementById('simulation-form');
     const btnAnalyze = document.getElementById('btn-analyze');
