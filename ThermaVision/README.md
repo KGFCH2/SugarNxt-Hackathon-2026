@@ -22,6 +22,7 @@ AI-powered industrial energy optimization platform for waste heat analysis, CO�
 - [🌐 API Documentation](#api-documentation)
 - [🚢 Deployment Guide](#deployment-guide)
 - [🎨 UI Features](#ui-features)
+- [📑 Submission Details](#submission-details)
 
 ---
 
@@ -200,11 +201,19 @@ Serving HTTP on :: port 3000 ...
 
 ---
 
-## Technical Instructions
+## 📖 Technical Instructions
 
-For a file-by-file explanation, backend-frontend connection logic, and a deep dive into the engineering math, please refer to my primary instruction document:
+For a file-by-file explanation, backend-frontend connection logic, and a deep dive into the engineering math, please refer to my primary instruction document: 🧠
 
-👉 **[Read INSTRUCTIONS.md](./INSTRUCTIONS.md)**
+👉 **[Read INSTRUCTIONS.md](./INSTRUCTIONS.md)** 🔗
+
+---
+
+## 📑 Submission Details
+
+For hackathon-specific info, including the **Mermaid diagrams**, competitive analysis, and cost breakdowns, view the submission file: 📄
+
+👉 **[Read SUBMISSION_DETAILS.md](./SUBMISSION_DETAILS.md)** 🔗
 
 ---
 
