@@ -169,7 +169,7 @@ INFO:     Uvicorn running on http://127.0.0.1:8080
 INFO:     Application startup complete.
 ```
 
-**Backend is now live at:** `http://127.0.0.1:8080`
+**Backend is now live at:** `https://thermavision.onrender.com`
 
 ### Step 2 — Start the Frontend Server
 
@@ -196,7 +196,7 @@ Serving HTTP on :: port 3000 ...
 4. After submitting, the app calls the backend API and redirects you to the **Dashboard**
 5. View charts, metrics, AI insights, and download the PDF report
 
-> **Tip:** Both terminals must stay open while using the app. The frontend talks to the backend via `http://127.0.0.1:8080`.
+> **Tip:** Both terminals must stay open while using the app locally. For production, the frontend talks to the backend via `https://thermavision.onrender.com`.
 
 ---
 
@@ -247,7 +247,7 @@ Deploying ThermaVision to the cloud is straightforward since the backend and fro
    - **Root Directory:** `ThermaVision/backend`
    - **Build Command:** `pip install -r requirements.txt`
    - **Start Command:** `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-4. Deploy — Render gives you a public URL like `https://thermavision-api.onrender.com`
+5. Deploy — Render gives you a public URL: `https://thermavision.onrender.com`
 
 ### Frontend → Netlify or GitHub Pages
 
@@ -269,10 +269,10 @@ Deploying ThermaVision to the cloud is straightforward since the backend and fro
 After deploying the backend, update the API base URL in the frontend JS files:
 
 ```javascript
-// In js/simulation.js and js/dashboard.js, change:
+// In js/simulation.js, js/dashboard.js, and js/chatbot.js, change:
 const API_BASE = 'http://127.0.0.1:8080';
 // To your deployed backend URL:
-const API_BASE = 'https://thermavision-api.onrender.com';
+const API_BASE = 'https://thermavision.onrender.com';
 ```
 
 ### CORS Configuration
