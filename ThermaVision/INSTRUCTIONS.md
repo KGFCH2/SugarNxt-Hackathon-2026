@@ -12,6 +12,7 @@ Welcome to the internal documentation for **ThermaVision**. This guide explains 
 - 👩‍💻 **Debasmita Bose** — Developer
 - 👩‍💻 **Joita Paul** — Developer
 - 👩‍💻 **Manisha Debnath** — Developer
+- 🏠 **[Back to Project Overview](./README.md)** 🔙
 
 ---
 
@@ -151,9 +152,9 @@ These are the core computation modules that run the industrial thermodynamic log
 
 The frontend runs on `127.0.0.1:3000` (a simple Python HTTP server) and the backend runs on `127.0.0.1:8080` (FastAPI/Uvicorn). They are separate because:
 
-- **Security**: The backend holds the Groq API key and sensitive calculation logic — these never reach the browser
-- **Separation of concerns**: The frontend handles presentation, the backend handles computation
-- **CORS**: The backend explicitly allows requests from any origin (or specific frontend domains) via FastAPI CORS middleware in `main.py`
+- **Security**: The backend holds the Groq API key and sensitive calculation logic — these never reach the browser 🔒
+- **Separation of concerns**: The frontend handles presentation, the backend handles computation 🧩
+- **CORS**: The backend explicitly allows requests from any origin (or specific frontend domains) via FastAPI CORS middleware in `main.py` 🌐
 
 ### The Data Flow
 
