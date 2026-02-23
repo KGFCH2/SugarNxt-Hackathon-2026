@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    const API_BASE = 'http://127.0.0.1:8080';
+    const API_BASE = 'https://thermavision.onrender.com';
 
     const MOCK_ANSWERS = {
         "hello": "Hello! I'm ThermaBot. How can I help you optimize your sugar mill's energy recovery today?",
