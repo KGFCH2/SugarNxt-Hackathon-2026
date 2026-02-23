@@ -201,7 +201,9 @@ Serving HTTP on :: port 3000 ...
 
 ---
 
-## Technical Instructions 📖
+## Technical Instructions
+
+📖 **Engineering Guide**
 
 For a file-by-file explanation, backend-frontend connection logic, and a deep dive into the engineering math, please refer to my primary instruction document: 🧠
 
@@ -209,7 +211,9 @@ For a file-by-file explanation, backend-frontend connection logic, and a deep di
 
 ---
 
-## Submission Details 📑
+## Submission Details
+
+📑 **Hackathon Presentation**
 
 For hackathon-specific info, including the **Mermaid diagrams**, competitive analysis, and cost breakdowns, view the submission file: 📄
 
@@ -251,12 +255,12 @@ Deploying ThermaVision to the cloud is straightforward since the backend and fro
 ### Backend → Render (Free Tier)
 
 1. Push your code to a **GitHub** repository
-2. Go to [render.com](https://render.com) → **New Web Service**
-3. Connect your GitHub repo, set:
+1. Go to [render.com](https://render.com) → **New Web Service**
+1. Connect your GitHub repo, set:
    - **Root Directory:** `ThermaVision/backend`
    - **Build Command:** `pip install -r requirements.txt`
    - **Start Command:** `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-4. Deploy — Render gives you a public URL: `https://thermavision.onrender.com`
+1. Deploy — Render gives you a public URL: `https://thermavision.onrender.com`
 
 ### Frontend → Netlify or GitHub Pages
 
