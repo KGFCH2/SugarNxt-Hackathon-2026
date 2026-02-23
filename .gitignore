@@ -15,3 +15,6 @@ ThermaVision/SUBMISSION_DETAILS.md
 # hide public files from repo
 ThermaVision/frontend/public/
 
+# Extras 
+.markdownlint.json
+
