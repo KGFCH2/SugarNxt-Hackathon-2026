@@ -8,23 +8,22 @@
 
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
-- [✨ Overview](#overview)
-- [🏛️ About ISMA](#about-isma)
-- [🧩 Hackathon Problem Statements](#hackathon-problem-statements)
-- [🔥 Our PS-5 Solution](#our-ps-5-solution)
-- [🏗️ Technical Architecture](#technical-architecture)
-- [▶️ Quick Start](#quick-start)
-- [👥 Team Four-0-Four](#team-four-0-four)
-- [📂 Project Structure](#project-structure)
-- [🤝 Future Roadmap](#future-roadmap)
+- [✨ Overview](#overview-anchor)
+- [🏛️ About ISMA](#about-isma-anchor)
+- [🧩 Hackathon Problem Statements](#problem-statements-anchor)
+- [🔥 Our PS-5 Solution](#solution-anchor)
+- [🏗️ Technical Architecture](#architecture-anchor)
+- [▶️ Quick Start](#quick-start-anchor)
+- [👥 Team Four-0-Four](#team-anchor)
+- [📂 Project Structure](#structure-anchor)
+- [🤝 Future Roadmap](#roadmap-anchor)
 
 ---
 
-## Overview
-
-✨ **Project Summary**
+<a id="overview-anchor"></a>
+## ✨ Overview
 
 The **ISMA SugarNXT Hackathon 2026** is an industry-driven initiative accelerating technology-led transformation across the Indian sugar ecosystem. 🏭
 
@@ -34,7 +33,8 @@ Our submission, **ThermaVision**, addresses **PS-5**: *Converting Flue Gas Waste
 
 👉 **[Explore the full ThermaVision project details here](./ThermaVision/README.md)** 🔗
 
-## About ISMA
+<a id="about-isma-anchor"></a>
+## 🏛️ About ISMA
 
 The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarcane sector for over nine decades. ISMA works closely with policymakers, industry leaders, and farmers to modernize operations and drive sustainable growth.
 
@@ -42,7 +42,8 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 
 ---
 
-## Hackathon Problem Statements
+<a id="problem-statements-anchor"></a>
+## 🧩 Hackathon Problem Statements
 
 - **PS-1** — Developing MOC for High-Impact Cane Preparation 🍃
 - **PS-2** — Micro-Filtration for High-Yield Juice Clarification 🧫
@@ -55,9 +56,8 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 
 ---
 
-## Our PS-5 Solution
-
-🔥 **Industrial Energy Analytics**
+<a id="solution-anchor"></a>
+## 🔥 Our PS-5 Solution
 
 ### Flue gas emissions from industrial boilers — a massive untapped energy source 💨
 
@@ -74,7 +74,9 @@ Capture thermal energy potential from boiler flue gas and convert it into usable
 
 ---
 
-## Technical Architecture
+<a id="architecture-anchor"></a>
+<a id="architecture-anchor"></a>
+## 🏗️ Technical Architecture
 
 We have built a robust **Decoupled Full-Stack** solution:
 
@@ -83,15 +85,19 @@ We have built a robust **Decoupled Full-Stack** solution:
 
 ---
 
-## Quick Start
+<a id="quick-start-anchor"></a>
+<a id="quick-start-anchor"></a>
+## ▶️ Quick Start
 
-### Prerequisites
+<a id="prerequisites-anchor"></a>
+### 📋 Prerequisites
 
 - **Python 3.9+** — [Download here](https://www.python.org/downloads/)
 - **pip** — Comes bundled with Python
 - Modern Web Browser (Chrome / Edge / Firefox)
 
-### Step 1: Clone & Setup Environment
+<a id="step-1-anchor"></a>
+### ⚙️ Step 1: Clone & Setup Environment
 
 ```bash
 # Clone the repository (or download ZIP)
@@ -111,14 +117,16 @@ venv\Scripts\activate.bat
 source venv/bin/activate
 ```
 
-### Step 2: Install Dependencies
+<a id="step-2-anchor"></a>
+### 📦 Step 2: Install Dependencies
 
 ```bash
 # Inside the backend directory with venv active
 pip install -r requirements.txt
 ```
 
-### Step 3: Launch Backend Server
+<a id="step-3-anchor"></a>
+### 🖥️ Step 3: Launch Backend Server
 
 ```bash
 # From the backend directory
@@ -127,7 +135,8 @@ python run.py
 
 You should see: `INFO: Uvicorn running on http://127.0.0.1:8080`
 
-### Step 4: Launch Frontend (New Terminal)
+<a id="step-4-anchor"></a>
+### 🌐 Step 4: Launch Frontend (New Terminal)
 
 ```bash
 # Open a NEW terminal, navigate to the frontend folder
@@ -139,7 +148,8 @@ python -m http.server 3000 --bind 127.0.0.1
 
 You should see: `Serving HTTP on :: port 3000 ...`
 
-### Step 5: Open in Browser
+<a id="step-5-anchor"></a>
+### 🖱️ Step 5: Open in Browser
 
 Go to [http://localhost:3000](http://localhost:3000) — The ThermaVision portal is now live!
 
@@ -147,7 +157,9 @@ Go to [http://localhost:3000](http://localhost:3000) — The ThermaVision portal
 
 ---
 
-## Team Four-0-Four
+<a id="team-anchor"></a>
+<a id="team-anchor"></a>
+## 👥 Team Four-0-Four
 
 We are a dedicated group of engineers passionate about industrial sustainability.
 
@@ -160,7 +172,9 @@ We are a dedicated group of engineers passionate about industrial sustainability
 
 ---
 
-## Project Structure
+<a id="structure-anchor"></a>
+<a id="structure-anchor"></a>
+## 📂 Project Structure
 
 ```bash
 ThermaVision/
@@ -180,7 +194,9 @@ ThermaVision/
 
 ---
 
-## Future Roadmap
+<a id="roadmap-anchor"></a>
+<a id="roadmap-anchor"></a>
+## 🤝 Future Roadmap
 
 - [ ] **Hardware Integration**: Real-time IoT sensor telemetry.
 - [ ] **Predictive Maintenance**: AI-driven fouling detection for heat exchangers.
@@ -189,7 +205,8 @@ ThermaVision/
 
 ---
 
-## License & Credits
+<a id="license-anchor"></a>
+## ⚖️ License & Credits
 
 Developed for **ISMA SugarNXT Hackathon 2026** by **Team Four-0-Four**.
 All contributors retain ownership of their respective work.
