@@ -22,7 +22,7 @@
 
 ---
 
-## ✨ Overview
+## Overview ✨
 
 The **ISMA SugarNXT Hackathon 2026** is an industry-driven initiative accelerating technology-led transformation across the Indian sugar ecosystem. 🏭
 
@@ -53,7 +53,7 @@ The **Indian Sugar Mills Association (ISMA)** has represented the Indian sugarca
 
 ---
 
-## 🔥 Our PS-5 Solution
+## Our PS-5 Solution 🔥
 
 ### Flue gas emissions from industrial boilers — a massive untapped energy source 💨
 
