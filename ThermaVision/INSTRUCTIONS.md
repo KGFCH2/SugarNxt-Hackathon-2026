@@ -35,7 +35,7 @@ ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend 
                          │ HTTP Request (JSON body)
                          ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│                     FASTAPI BACKEND (127.0.0.1:8080)                 │
+│               FASTAPI BACKEND (thermavision.onrender.com)         │
 │                                                                     │
 │  routes.py ──► calculator.py ──► optimizer.py ──► insights.py       │
 │  (API endpoints)  (Thermodynamics)  (Scenarios)   (AI Summary)      │
@@ -49,7 +49,7 @@ ThermaVision follows a **Decoupled Full-Stack Architecture** where the frontend 
 1. **User opens `index.html`** in the browser (served on `localhost:3000`). This is the landing page with project overview and a call-to-action to start the simulation
 2. **User navigates to `simulation.html`** and fills the form with plant parameters (temperatures, flow rate, fuel type, costs)
 3. **Form submission triggers `simulation.js`** which validates all inputs and packages them into a JSON object
-4. **`simulation.js` sends a `POST` request** to `http://127.0.0.1:8080/analyze` using the browser `fetch()` API
+4. **`simulation.js` sends a `POST` request** to `https://thermavision.onrender.com/analyze` using the browser `fetch()` API
 5. **The FastAPI backend receives the request** at the `/analyze` endpoint defined in `routes.py`
 6. **Backend processes the data** through three engine modules:
    - `calculator.py` runs thermodynamic calculations (heat recovered, steam saved, efficiency)
@@ -153,7 +153,7 @@ The frontend runs on `127.0.0.1:3000` (a simple Python HTTP server) and the back
 
 - **Security**: The backend holds the Groq API key and sensitive calculation logic — these never reach the browser
 - **Separation of concerns**: The frontend handles presentation, the backend handles computation
-- **CORS**: The backend explicitly allows requests from the frontend origin via FastAPI CORS middleware in `main.py`
+- **CORS**: The backend explicitly allows requests from any origin (or specific frontend domains) via FastAPI CORS middleware in `main.py`
 
 ### The Data Flow
 
@@ -161,7 +161,7 @@ The frontend runs on `127.0.0.1:3000` (a simple Python HTTP server) and the back
 simulation.html (form)
         │
         ▼
-simulation.js → fetch("http://127.0.0.1:8080/analyze", {
+simulation.js → fetch("https://thermavision.onrender.com/analyze", {
                     method: "POST",
                     body: JSON.stringify({
                         flue_temp_in: 250,
@@ -242,7 +242,7 @@ pip install -r requirements.txt
 python run.py
 ```
 
-Backend starts at `http://127.0.0.1:8080`
+Backend starts locally at `http://127.0.0.1:8080` or is available at `https://thermavision.onrender.com`
 
 ### Step 2 — Start the Frontend
 
